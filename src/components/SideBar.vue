@@ -45,7 +45,7 @@
         >
           HOME
         </li>
-        <li
+        <!-- <li
           :class="currentPage === 2 ? 'active' : ''"
           @click="$emit('change-page', 2)"
         >
@@ -56,7 +56,7 @@
           @click="$emit('change-page', 3)"
         >
           STREAMS
-        </li>
+        </li> -->
         <!-- <li :class="currentPage === 4 ? 'active' : ''" @click="$emit('change-page', 4)">NONAME</li> -->
       </ul>
     </div>
