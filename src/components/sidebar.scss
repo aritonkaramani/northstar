@@ -1,0 +1,87 @@
+.sidebar-wrapper {
+    max-width: 20rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .sidebar-title {
+        color: white;
+        font-size: 3rem;
+
+    }
+    .northstar-logo {
+        width: 10rem;
+        border-radius: 100%;
+    }
+    button {
+        font-size: 1.2rem;
+        padding: 0.7rem;
+        border-radius: 0.2rem;
+        background-color: #e8f4f4;
+        background-image: linear-gradient(153deg, #9599E2 100%, #e8f4f4 0%);      
+        border: none;
+        width: 17.5rem;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            background-image: linear-gradient(153deg, #e8f4f4 0%, #9599E2 100%);
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    .external-links {
+        ul{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            li {
+                margin-right: 2rem;
+                margin-left: 2rem;
+                list-style: none;
+                a {
+                    img {
+                        height: 3rem;
+                        width: 3rem;
+                    }
+                }
+            }
+            .wowprogress-icon {
+                cursor: pointer;
+                background: black;
+                padding: 0.9rem;
+                border-radius: 100%;
+                a {
+                    user-select: none;
+                    text-decoration: none;
+                    outline: none;
+                    color: white;
+                }
+    
+            }
+        }
+    }
+    .nav-links {
+        width: 100%;
+        .link-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            li {
+                font-size: 1.5rem;
+                cursor: pointer;
+                user-select: none;
+                list-style: none;
+            }
+            li:hover {
+                color: #0093E9;
+            }
+            .active {
+                color: #0093E9;
+            }
+        }
+    }
+}

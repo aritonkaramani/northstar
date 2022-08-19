@@ -1,0 +1,43 @@
+.table-wrapper {
+    padding-bottom: 10rem;
+    .kill-table {
+        width: 100%;
+        background-color: rgb(26,26,26);
+        border-collapse: collapse;
+        tbody {
+            tr {
+                border-bottom: 1px solid rgb(135, 135, 135);
+                th, td {
+                    padding: 1rem;
+                    text-align: left;
+                }  
+                .tier {
+                    text-align: center;
+                    font-size: 1.2rem;
+                }
+                .boss {
+                    color: #0093E9;
+                }
+                .uncommon {
+                    color: #1EFF00;
+                }
+                .rare {
+                    color: #0070DD;
+                }
+                .epic {
+                    color: #A335EE;
+                }
+                .legendary {
+                    color: #FF8000;
+                }
+                // th:nth-child(1) {
+                //     text-align: left;
+                // }
+                // td:nth-child(1) {
+                //     // text-align: center;
+                // }
+            }
+        }
+    }
+
+}

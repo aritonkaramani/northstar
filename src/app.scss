@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow-y: scroll;
+}
+#app {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: rgb(16,16,16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main-wrapper {
+    max-width: 80rem;
+    width: 100%;
+    background-color: rgb(24,24,24);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    .sidebar {
+        margin-top: 2rem;
+        padding: 0;
+        max-width: 20rem;
+        min-height: 100vh;
+    }
+    .component-wrapper {
+        max-width: 60rem;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(36,36,36);
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 3rem;
+    }
+}
