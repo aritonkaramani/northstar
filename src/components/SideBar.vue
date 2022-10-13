@@ -9,6 +9,7 @@
             href="https://raider.io/guilds/eu/ravencrest/northstar"
             target="_blank"
           >
+          <img src="s" />
             <img src="../assets/raiderioicon.svg" />
           </a>
         </li>

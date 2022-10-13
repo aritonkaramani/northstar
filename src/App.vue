@@ -28,8 +28,10 @@ export default defineComponent({
     };
   },
   methods: {
+    // code
     setPage(page: number) {
       this.setActive = page;
+      // aklsjdöaskljd
     },
   },
 });

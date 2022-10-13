@@ -79,6 +79,7 @@
           <td class="boss">G'huun</td>
           <td class="epic">40</td>
           <td>Jan 06, 2019</td>
+          <td>hello</td>
         </tr>
       </tbody>
     </table>
