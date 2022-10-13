@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div></div>
+    <div>
+      <h2>d</h2>
+    </div>
     <about-us />
     <northstar-rankings />
   </div>
