@@ -6,7 +6,7 @@
       couple of old Northstar players and some others decided to tone it down a
       bit and not raid as often anymore. However, most people might relate
       casual raiding or three day raiding as non-progress aimed timewaste;
-      instead, we’re looking to push content as much as we did before with full
+      instead, we're looking to push content as much as we did before with full
       focus at the times we raid while having a big banter doing it.
     </p>
     <p>
@@ -22,7 +22,7 @@
     </p>
     <p>
       In return we need you to be a experienced and motivated raider who knows
-      your class in and out, who won’t waste the little time we have with petty
+      your class in and out, who won't waste the little time we have with petty
       afks and silly whining. We recruit only the best players in order to make
       up for the loss of 2-3 raid days. We also want mature players who are able
       to handle progress bumps and constructive criticism without making raids
