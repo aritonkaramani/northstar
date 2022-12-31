@@ -33,7 +33,6 @@
       to add any officer on battletag:
       <ul>
         <li>Ariton (RL - Boosting) - Ari#2764</li>
-        <li>Dagor (Recruitment) - Dagor#2805</li>
         <li>Shooty (Recruitment) - DiddlyDave#2662</li>
         <li>Talas/Walas (Recruitment) - Loosenoob#2584</li>
       </ul>
