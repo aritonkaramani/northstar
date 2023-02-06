@@ -9,6 +9,21 @@
           <th>Date</th>
         </tr>
         <tr>
+          <td colspan="4" class="tier">Vault of the Incarnates</td>
+        </tr>
+        <tr>
+          <td class="epic">96</td>
+          <td class="boss">Raszageth</td>
+          <td class="legendary">1</td>
+          <td>Feb 05, 2023</td>
+        </tr>
+        <tr>
+          <td class="epic">94</td>
+          <td class="boss">Kurog Grimtotem</td>
+          <td class="legendary">1</td>
+          <td>Jan 04, 2023</td>
+        </tr>
+        <tr>
           <td colspan="4" class="tier">Sepulcher of the First Ones</td>
         </tr>
         <tr>
