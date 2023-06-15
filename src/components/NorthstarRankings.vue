@@ -9,6 +9,15 @@
           <th>Date</th>
         </tr>
         <tr>
+          <td colspan="4" class="tier">Aberrus, the Shadowed Crucible</td>
+        </tr>
+        <tr>
+          <td class="epic">100</td>
+          <td class="boss">Scalecommander Sarkareth</td>
+          <td class="legendary">1</td>
+          <td>Jun 14, 2023</td>
+        </tr>
+        <tr>
           <td colspan="4" class="tier">Vault of the Incarnates</td>
         </tr>
         <tr>

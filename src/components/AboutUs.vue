@@ -32,9 +32,7 @@
       If this sounds like something you would be interrested in, do not hesitate
       to add any officer on battletag:
       <ul>
-        <li>Ariton (RL - Boosting) - Ari#2764</li>
-        <li>Shooty (Recruitment) - DiddlyDave#2662</li>
-        <li>Talas/Walas (Recruitment) - Loosenoob#2584</li>
+        <li>Ariton (RL - Boosting / Recruitment) - Ari#2764</li>
       </ul>
     </div>
   </div>
