@@ -21,12 +21,15 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+      }
 
     .sidebar {
         margin-top: 2rem;
         padding: 0;
         max-width: 20rem;
-        min-height: 100vh;
+        max-height: 100vh;
     }
     .component-wrapper {
         max-width: 60rem;
