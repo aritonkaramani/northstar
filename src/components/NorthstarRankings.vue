@@ -64,15 +64,6 @@
           <td>Feb 05, 2023</td>
         </tr>
         <tr>
-          <td class="epic">94</td>
-          <td class="boss">Kurog Grimtotem</td>
-          <td class="legendary">1</td>
-          <td>
-            <img src="../assets/youtube.svg" class="disabled" />
-          </td>
-          <td>Jan 04, 2023</td>
-        </tr>
-        <tr>
           <td colspan="5" class="tier">Sepulcher of the First Ones</td>
         </tr>
         <tr>
