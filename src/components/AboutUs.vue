@@ -1,5 +1,19 @@
 <template>
   <div>
+    <h2>Recruitment</h2>
+    <div>
+      Open for every role and class - even if your experience sucks but you
+      think you're good then please apply, on the extra lookout for these
+      specific classes below
+      <ul>
+        <li>Melee flex</li>
+        <li>DK</li>
+        <li>Boomkin</li>
+        <li>Mage</li>
+      </ul>
+    </div>
+
+    <h2>History</h2>
     <p>
       Northstar has been around in a semi-hardcore manner since the burning
       crusade days with various realm rankings over the years. Entering legion a
@@ -12,13 +26,12 @@
     <p>
       We offer you an international raiding community with progress hungry
       people who enjoy the raiding phenomena just as much as you do with a
-      “casual” yet focused approach of only three raid days a week on
-      Wednesdays, Sundays and Mondays from 20:00-23:00 ST. On Heroic week we
-      also raid Thursday and when we reach the last boss we also raid 4 times a
-      week until the boss is dead. You will be able to see end bosses and
-      progress in mythic modes without having to sacrifice too many other
-      things, we hope this will attract some old hardcore players like some of
-      us to join our ranks.
+      “casual” yet focused approach of only four raid days a week with
+      <b>NO SPLITS</b> on Wednesdays,Thursdays, Sundays and Mondays from
+      20:00-23:00 ST. You will be able to see end bosses and progress in mythic
+      modes without having to sacrifice too many other things, we hope this will
+      attract some old hardcore players like some of us to join our ranks. We
+      also tend to raid only 1 day a week on farm and that is on Sundays.
     </p>
     <p>
       In return we need you to be a experienced and motivated raider who knows
@@ -32,7 +45,10 @@
       If this sounds like something you would be interrested in, do not hesitate
       to add any officer on battletag:
       <ul>
-        <li>Ariton (RL - Boosting / Recruitment) - Ari#2764</li>
+        <li>Ariton (RL - Boosting) - Ari#2764</li>
+        <li>spdne (Recruitment)</li>
+        <li>Dent247 (Recruitment)</li>
+        <li>Reminale (Recruitment)</li>
       </ul>
     </div>
   </div>
