@@ -50,6 +50,7 @@
 <script lang="ts">
 export default {
   props: {
+    msg: String,
     currentPage: { Number, default: 1 },
   },
 };
