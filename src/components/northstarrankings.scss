@@ -18,6 +18,14 @@
                         filter: grayscale(1);
                     }
                 }  
+                @media (max-width: 800px) {
+                    td {
+                        margin: 0;
+                    }
+                    td:nth-child(5), td:nth-child(3), th:nth-child(5), th:nth-child(3) {
+                        display: none;
+                    }
+                }
                 .tier {
                     text-align: center;
                     font-size: 1.2rem;
