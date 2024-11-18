@@ -38,8 +38,9 @@
       If this sounds like something you would be interrested in, do not hesitate
       to add any officer on battletag:
       <ul>
-        <li>Ariton (Recruitment) - Ari#2764</li>
+        <li>Bnet: Ari#2764, Discord: ari03024 (Recruitment)</li>
         <li>Dent247 (Recruitment)</li>
+        <li>Potato (Recruitment)</li>
       </ul>
     </div>
   </div>
