@@ -2,7 +2,8 @@
   <div>
     <h2>Recruitment</h2>
     <div>
-      4 days - 20-23 Wed, Thurs, Sun, Mon On farm we typically raid Sunday
+      4 days - 20-23 Wed, Thurs, Sun, Mon On farm we typically raid Sunday.
+      <br />
       Recruitment Warrior, Melee flex, Enhancement, Healer, Evoker dps Even if
       your class isn't listed above and your experience sucks but you think
       you're good then please apply :)
