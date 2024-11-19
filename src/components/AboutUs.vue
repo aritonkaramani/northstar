@@ -2,11 +2,16 @@
   <div>
     <h2>Recruitment</h2>
     <div>
-      4 days - 20-23 Wed, Thurs, Sun, Mon On farm we typically raid Sunday.
       <br />
-      Recruitment Warrior, Melee flex, Enhancement, Healer, Evoker dps Even if
-      your class isn't listed above and your experience sucks but you think
-      you're good then please apply :)
+      Druid DPS (Any spec) , Evoker (both specs) , HEALER , Ranged DPS (Any) ,
+      TANK
+      <br />
+      Even if your class isn't listed above and your experience sucks but you
+      think you're good then please apply :)
+      <h3>Raid Times</h3>
+      3 days - 20-23 <b> Thu, Sun, Mon </b>
+      On farm we typically raid Sunday. (Ongoing talks of getting this to 19.30
+      - 23.00)
     </div>
 
     <h2>History</h2>
@@ -39,9 +44,9 @@
       If this sounds like something you would be interrested in, do not hesitate
       to add any officer on battletag:
       <ul>
-        <li>Bnet: Ari#2764, Discord: ari03024 (Recruitment)</li>
-        <li>Dent247 (Recruitment)</li>
-        <li>Potato (Recruitment)</li>
+        <li>Ari - Discord: ari03024 (Recruitment)</li>
+        <li>Dent - Discord: Dent247 (Recruitment)</li>
+        <li>Potato - Discord: naskjaer (Recruitment)</li>
       </ul>
     </div>
   </div>
@@ -52,5 +57,3 @@ export default {};
 </script>
 
 <style></style>
-
-T

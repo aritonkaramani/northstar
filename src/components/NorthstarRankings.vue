@@ -10,6 +10,24 @@
           <th>Date</th>
         </tr>
         <tr>
+          <td colspan="5" class="tier">Nerub'ar Palace</td>
+        </tr>
+        <tr>
+          <td class="epic">69</td>
+          <td class="boss">Queen Ansurek</td>
+          <td class="legendary">1</td>
+          <td>
+            <a
+              href="https://www.youtube.com/watch?v=B4DxkZSiBrg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="../assets/youtube.svg" />
+            </a>
+          </td>
+          <td>Nov 4, 2024</td>
+        </tr>
+        <tr>
           <td colspan="5" class="tier">Amirdrassil, the Dream's Hope</td>
         </tr>
         <tr>
