@@ -3,8 +3,8 @@
     <h2>Recruitment</h2>
     <div>
       <br />
-      Druid DPS (Any spec) , Evoker (both specs) , HEALER , Ranged DPS (Any) ,
-      TANK
+      Actively recruiting healers & tanks. Looking for 1-2 of any dps for a mid
+      tier recruitment for prog.
       <br />
       Even if your class isn't listed above and your experience sucks but you
       think you're good then please apply :)
