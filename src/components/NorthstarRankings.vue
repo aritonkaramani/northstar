@@ -10,7 +10,17 @@
           <th>Date</th>
         </tr>
         <tr>
-          <td colspan="5" class="tier">Nerub'ar Palace</td>
+          <td colspan="5" class="tier">Liberation of Undermine</td>
+        </tr>
+        <tr>
+          <td class="rare">106</td>
+          <td class="boss">Chrome King Gallywix</td>
+          <td class="legendary">1</td>
+          <td><img src="../assets/youtube.svg" class="disabled" /></td>
+          <td>Apr 17, 2025</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="tier">Nerub-ar Palace</td>
         </tr>
         <tr>
           <td class="epic">69</td>
