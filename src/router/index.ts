@@ -10,6 +10,16 @@ const routes: RouteRecordRaw[] = [
     path: '/members',
     component: () => import('../views/MembersArea.vue'),
     meta: { requiresAuth: true },
+    children: [
+      {
+        path: '',
+        component: () => import('../views/MembersHome.vue'),
+      },
+      {
+        path: 'roster',
+        component: () => import('../views/RosterView.vue'),
+      },
+    ],
   },
   {
     path: '/:pathMatch(.*)*',
@@ -22,9 +32,10 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to) => {
+router.beforeEach(async (to) => {
   if (to.meta.requiresAuth) {
-    const { user } = useAuth();
+    const { ready, user } = useAuth();
+    await ready;
     if (!user.value) return '/';
   }
 });

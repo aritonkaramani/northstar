@@ -1,49 +1,60 @@
 <template>
-  <div class="members-area">
-    <h1>Members Area</h1>
-    <p v-if="user">Welcome, <span class="battletag">{{ user.battleTag }}</span>! ⚔️</p>
-    <p class="coming-soon">More content coming soon...</p>
+  <div class="members-wrapper">
+    <div class="sidebar">
+      <MembersSidebar />
+    </div>
+    <div class="component-wrapper">
+      <RouterView />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useAuth } from '../composables/useAuth';
+import MembersSidebar from '../components/MembersSidebar.vue';
 
 export default defineComponent({
   name: 'MembersArea',
-  setup() {
-    const { user } = useAuth();
-    return { user };
-  },
+  components: { MembersSidebar },
 });
 </script>
 
 <style lang="scss" scoped>
-.members-area {
+.members-wrapper {
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
+  align-self: stretch;
+  background-color: #141517;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  color: #e0e0e0;
-  text-align: center;
+  flex: 1;
+  flex-direction: row;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
 
-  h1 {
-    font-size: 2.5rem;
-    color: #e2b84b;
-    margin-bottom: 1rem;
+  .sidebar {
+    padding: 0;
+    width: 14rem;
+    min-width: 14rem;
+    background-color: #1a1b1e;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: hidden;
   }
 
-  .battletag {
-    color: #e2b84b;
-    font-weight: bold;
-  }
-
-  .coming-soon {
-    color: #666;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
+  .component-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    background-color: #141517;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 </style>
+

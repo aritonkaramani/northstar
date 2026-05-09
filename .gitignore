@@ -27,3 +27,6 @@ pnpm-debug.log*
 .vercel
 .env*.local
 .vercel
+
+# Internal docs / planning
+docs/
