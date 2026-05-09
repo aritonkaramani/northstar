@@ -1,36 +1,27 @@
 <template>
   <div class="main-wrapper">
-    <SideBar
-      class="sidebar"
-      :currentPage="setActive"
-      @change-page="setPage($event)"
-    />
+    <div class="sidebar">
+      <SideBarProgression />
+    </div>
     <div class="component-wrapper">
-      <HomeStart v-if="setActive === 1" />
+      <SideBarTop />
+      <HomeStart />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import SideBar from "./components/SideBar.vue";
+import SideBarTop from "./components/SideBarTop.vue";
+import SideBarProgression from "./components/SideBarProgression.vue";
 import HomeStart from "./components/HomeStart.vue";
 
 export default defineComponent({
   name: "App",
   components: {
-    SideBar,
+    SideBarTop,
+    SideBarProgression,
     HomeStart,
-  },
-  data() {
-    return {
-      setActive: 1,
-    };
-  },
-  methods: {
-    setPage(page: number) {
-      this.setActive = page;
-    },
   },
 });
 </script>

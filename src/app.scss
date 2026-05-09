@@ -8,7 +8,7 @@ body {
 #app {
     margin: 0;
     padding: 0;
-    background-color: rgb(16, 16, 16);
+    background-color: #080808;
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -20,10 +20,12 @@ body {
 .main-wrapper {
     max-width: 80rem;
     width: 100%;
-    background-color: rgb(24, 24, 24);
+    background-color: #0d0d0d;
     display: flex;
     flex: 1;
     flex-direction: row;
+    border-left: 1px solid rgba(255, 255, 255, 0.03);
+    border-right: 1px solid rgba(255, 255, 255, 0.03);
 
     @media screen and (max-width: 900px) {
         max-width: unset;
@@ -31,23 +33,37 @@ body {
     }
 
     .sidebar {
-        margin-top: 2rem;
         padding: 0;
-        max-width: 20rem;
+        width: 20rem;
+        min-width: 20rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.04);
+        align-self: flex-start;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: hidden;
         @media screen and (max-width: 900px) {
-            max-width: unset;
+            width: 100%;
+            min-width: unset;
+            position: static;
+            height: unset;
+            overflow-y: unset;
+            border-right: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            order: 3;
         }
-
     }
 
     .component-wrapper {
-        max-width: 60rem;
         display: flex;
         flex: 1;
         flex-direction: column;
-        background-color: rgb(36, 36, 36);
+        background-color: #0a0a0a;
         padding-left: 2rem;
         padding-right: 2rem;
-        padding-top: 3rem;
+        padding-top: 1.5rem;
+        @media screen and (max-width: 900px) {
+            order: 1;
+        }
     }
 }

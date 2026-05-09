@@ -1,0 +1,91 @@
+.about-wrapper {
+    padding-bottom: 2rem;
+}
+
+.about-section {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.section-title {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a227;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.section-text {
+    font-size: 0.9rem;
+    color: #c8c8c8;
+    line-height: 1.75;
+    margin-bottom: 0.8rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.officers {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+}
+
+.officer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    background: rgba(201, 162, 39, 0.04);
+    border: 1px solid rgba(201, 162, 39, 0.1);
+    border-radius: 6px;
+    padding: 0.9rem 1.2rem;
+    min-width: 130px;
+    transition: border-color 0.2s;
+
+    &:hover {
+        border-color: rgba(201, 162, 39, 0.25);
+    }
+}
+
+.officer-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.officer-role {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #c9a227;
+}
+
+.officer-discord {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.2rem;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &::before {
+        content: "@";
+        color: #555;
+    }
+
+    &:hover {
+        color: #c9a227;
+    }
+}
+
+@media (max-width: 600px) {
+    .officers {
+        flex-direction: column;
+    }
+}

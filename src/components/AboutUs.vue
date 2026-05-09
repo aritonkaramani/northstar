@@ -1,59 +1,54 @@
 <template>
-  <div>
-    <h2>Recruitment</h2>
-    <div>
-      <br />
-      Actively recruiting healers & tanks. Looking for 1-2 of any dps for a mid
-      tier recruitment for prog.
-      <br />
-      Even if your class isn't listed above and your experience sucks but you
-      think you're good then please apply :)
-      <h3>Raid Times</h3>
-      3 days - 20-23 <b> Thu, Sun, Mon </b>
-      On farm we typically raid Sunday. (Ongoing talks of getting this to 19.30
-      - 23.00)
-    </div>
+  <div class="about-wrapper">
 
-    <h2>History</h2>
-    <p>
-      Northstar has been around in a semi-hardcore manner since the burning
-      crusade days with various realm rankings over the years. Entering legion a
-      couple of old Northstar players and some others decided to tone it down a
-      bit and not raid as often anymore. However, most people might relate
-      casual raiding or three day raiding as non-progress aimed timewaste;
-      instead, we’re looking to push content as much as we did before with full
-      focus at the times we raid while having a big banter doing it.
-    </p>
-    <p>
-      We offer you an international raiding community with progress hungry
-      people with a “casual” yet focused approach of only four raid days a week.
-      You will be able to see end bosses and progress in early mythic without
-      having to sacrifice too many other things, we hope this will attract some
-      old hardcore players like some of us to join our ranks.
-    </p>
-    <p>
-      In return we expect you to be experienced, or very cracked at the game,
-      and motivated to progress raid. Know your class in and out. You're
-      expected to prep and research (typically provided by the guild) and not
-      come into a progress boss clueless. We also want mature players who are
-      able to communicate their mistakes and/or confusion, take constructive
-      criticism without getting tilted and/or it negatively impacting their
-      play.
-    </p>
-    <div>
-      If this sounds like something you would be interrested in, do not hesitate
-      to add any officer on battletag:
-      <ul>
-        <li>Ari - Discord: ari03024 (Recruitment)</li>
-        <li>Dent - Discord: Dent247 (Recruitment)</li>
-        <li>Potato - Discord: naskjaer (Recruitment)</li>
-      </ul>
-    </div>
+    <section class="about-section">
+      <h2 class="section-title">History</h2>
+      <p class="section-text">
+        Northstar has been around in a semi-hardcore manner since The Burning
+        Crusade with various realm rankings over the years. Entering Legion, a
+        couple of old Northstar players decided to tone the schedule down but
+        not the drive. Three raid days, full focus, big banter.
+      </p>
+      <p class="section-text">
+        We offer an international community of progress-hungry raiders with a
+        focused approach. You will see end bosses and early mythic progression
+        without sacrificing everything else in your life.
+      </p>
+      <p class="section-text">
+        In return, we expect you to know your class inside out, come prepared,
+        take constructive criticism without tilting, and be mature enough to
+        communicate your mistakes openly.
+      </p>
+    </section>
+
+    <section class="about-section">
+      <h2 class="section-title">Contact Officers</h2>
+      <div class="officers">
+        <div class="officer">
+          <span class="officer-name">Ari</span>
+          <span class="officer-role">Recruitment</span>
+          <a href="https://discord.com/users/235367258833158144" target="_blank" class="officer-discord">ari03024</a>
+        </div>
+        <div class="officer">
+          <span class="officer-name">Potato</span>
+          <span class="officer-role">Recruitment</span>
+          <a href="https://discord.com/users/228927085870055425" target="_blank" class="officer-discord">naskjaer</a>
+        </div>
+        <div class="officer">
+          <span class="officer-name">LFX</span>
+          <span class="officer-role">Recruitment</span>
+          <a href="https://discord.com/users/147791234771976192" target="_blank" class="officer-discord">LFX</a>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {};
 </script>
 
-<style></style>
+<style lang="scss">
+@use "./aboutus.scss";
+</style>
