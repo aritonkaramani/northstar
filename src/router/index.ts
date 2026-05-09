@@ -19,6 +19,10 @@ const routes: RouteRecordRaw[] = [
         path: 'roster',
         component: () => import('../views/RosterView.vue'),
       },
+      {
+        path: 'sims',
+        component: () => import('../views/SimsView.vue'),
+      },
     ],
   },
   {
