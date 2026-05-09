@@ -2,8 +2,8 @@
 node_modules
 /dist
 
-
 # local env files
+.env
 .env.local
 .env.*.local
 
@@ -21,3 +21,9 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Brainstorm session files
+.superpowers/
+.vercel
+.env*.local
+.vercel
