@@ -90,15 +90,19 @@ export default defineComponent({
     const uploadError = ref<string | null>(null);
     const fileInput   = ref<HTMLInputElement | null>(null);
 
-    const uploaderMap = computed(() => {
-      const map: Record<string, Uploader> = {};
-      for (const u of props.uploaders) map[u.name.toLowerCase()] = u;
-      return map;
-    });
+    // Find the first uploader whose stored name contains the roster name (or exact match).
+    // Handles cases like "aniimuzzmythic" matching roster player "aniimuzz".
+    function findUploader(rosterName: string): Uploader | undefined {
+      const needle = rosterName.toLowerCase();
+      return props.uploaders.find(u => {
+        const hay = u.name.toLowerCase();
+        return hay === needle || hay.includes(needle);
+      });
+    }
 
     const expectedWithStatus = computed(() =>
       props.expected.map(name => {
-        const uploader = uploaderMap.value[name];
+        const uploader = findUploader(name);
         return {
           name,
           displayName: name.charAt(0).toUpperCase() + name.slice(1),

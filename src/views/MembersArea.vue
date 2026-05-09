@@ -48,6 +48,7 @@ export default defineComponent({
   .component-wrapper {
     display: flex;
     flex: 1;
+    min-width: 0;
     flex-direction: column;
     background-color: #141517;
     padding-left: 2.5rem;
