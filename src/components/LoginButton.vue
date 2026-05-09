@@ -6,7 +6,6 @@
     </template>
     <template v-else>
       <a class="btn btn-login" href="/api/auth/login">
-        <img src="https://blz-contentstack-images.akamaized.net/v3/assets/blt9c12f249ac15c7ec/blt17b9e7ae44c31229/battlenet-logo.png" alt="" class="bnet-icon" />
         Login with Battle.net
       </a>
     </template>
