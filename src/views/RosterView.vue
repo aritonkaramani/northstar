@@ -92,6 +92,10 @@ export default defineComponent({
     display: flex;
     gap: 1.5rem;
     align-items: flex-start;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .table-col {

@@ -35,11 +35,33 @@ export default defineComponent({ name: 'MembersSidebar' });
 </style>
 
 <style lang="scss" scoped>
+.sidebar-progression-wrapper {
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+
+    .content-header {
+      display: none;
+    }
+
+    .sidebar-progression-title {
+      display: none;
+    }
+  }
+}
+
 .members-nav {
   padding: 1.2rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.6rem 0.75rem;
+    gap: 0.25rem;
+  }
 }
 
 .nav-divider {

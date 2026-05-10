@@ -56,6 +56,24 @@ export default defineComponent({
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+
+  // Tablet — tighten sidebar and padding
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .sidebar {
+      width: 100%;
+      min-width: 0;
+      height: auto;
+      position: static;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .component-wrapper {
+      padding: 1.25rem 1rem;
+    }
+  }
 }
 </style>
 

@@ -72,6 +72,11 @@ export default defineComponent({
 .player-card {
   flex: 1 1 260px;
   max-width: 340px;
+
+  @media (max-width: 768px) {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
   background: #1f2023;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 10px;

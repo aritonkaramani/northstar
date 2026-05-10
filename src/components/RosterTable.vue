@@ -79,7 +79,8 @@ export default defineComponent({
   background: #1f2023;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 10px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .roster-table {
@@ -88,7 +89,7 @@ export default defineComponent({
   font-size: 0.875rem;
   table-layout: fixed;
 
-  .col-name  { width: auto; }
+  .col-name  { width: auto; min-width: 140px; }
   .col-num   { width: 90px; }
   .col-vault { width: 150px; }
 
@@ -106,6 +107,8 @@ export default defineComponent({
     white-space: nowrap;
 
     &.col-name { text-align: left; }
+
+    @media (max-width: 768px) { padding: 10px 10px; }
   }
 
   tbody tr {
@@ -123,6 +126,8 @@ export default defineComponent({
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media (max-width: 768px) { padding: 10px 10px; }
   }
 
   tbody tr:last-child td { border-bottom: none; }
@@ -158,7 +163,9 @@ export default defineComponent({
 
 .char-link {
   text-decoration: none;
+  color: inherit; /* fallback if classColor not yet loaded */
   &:hover { text-decoration: underline; }
+  &:visited { color: inherit; }
 }
 
 // Numeric cells

@@ -235,6 +235,8 @@ export default defineComponent({
     padding-bottom: 1.2rem;
     margin-bottom: 1.4rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   h2 {
@@ -244,6 +246,8 @@ export default defineComponent({
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 0.3rem;
+
+    @media (max-width: 768px) { font-size: 1.1rem; letter-spacing: 2px; }
   }
 
   .subtitle {
@@ -277,6 +281,7 @@ export default defineComponent({
     display: flex;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .diff-tab {
@@ -310,6 +315,7 @@ export default defineComponent({
     gap: 0.4rem;
     margin-bottom: 1rem;
     margin-top: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .view-tab {

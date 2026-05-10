@@ -170,10 +170,19 @@ export default defineComponent({
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .drop-zone {
   flex: 0 0 260px;
+
+  @media (max-width: 768px) {
+    flex: none;
+    width: 100%;
+  }
   min-height: 110px;
   background: #1f2023;
   border: 2px dashed rgba(255, 255, 255, 0.1);
