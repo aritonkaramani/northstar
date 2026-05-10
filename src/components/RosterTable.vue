@@ -20,7 +20,15 @@
           </tr>
           <tr v-else>
             <td class="char-name">
-              <span class="char-label" :style="{ color: m.classColor }">{{ m.name }}</span>
+              <a
+                v-if="m.name && m.realm"
+                :href="`https://raider.io/characters/eu/${m.realm}/${m.name}`"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="char-link"
+                :style="{ color: m.classColor }"
+              >{{ m.name }}</a>
+              <span v-else class="char-label" :style="{ color: m.classColor }">{{ m.name }}</span>
             </td>
             <td class="ilvl">{{ m.itemLevel || '—' }}</td>
             <td class="keys">{{ m.keysThisWeek }}</td>
@@ -46,6 +54,7 @@ interface RosterMember {
   separator?: boolean;
   empty?: boolean;
   name?: string;
+  realm?: string;
   className?: string | null;
   classColor?: string;
   itemLevel?: number;
@@ -141,10 +150,15 @@ export default defineComponent({
   text-align: left !important;
 }
 
-.char-label {
+.char-label, .char-link {
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 0.01em;
+}
+
+.char-link {
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
 }
 
 // Numeric cells

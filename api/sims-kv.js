@@ -6,7 +6,7 @@ import { kv } from '@vercel/kv';
 
 /** Canonical KV key for a player entry */
 export function playerKey(difficulty, name, spec) {
-  return `sims:${difficulty}:player:${name}_${spec}`;
+  return spec ? `sims:${difficulty}:player:${name}_${spec}` : `sims:${difficulty}:player:${name}`;
 }
 
 /** Returns array of all player KV keys for a difficulty, or [] if none */

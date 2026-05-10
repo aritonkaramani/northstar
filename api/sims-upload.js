@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import formidable from 'formidable';
-import { parseFilename, parseDroptimizerCSV, buildMatrix } from './sims-parse.js';
+import { parseFilename, parseCsvIdentity, parseCsvDifficulty, parseDroptimizerCSV, buildMatrix } from './sims-parse.js';
 import { playerKey, addPlayerKey, getAllPlayers, upsertUploader, setPlayerData, setResult } from './sims-kv.js';
 
 // Required: disable Vercel's built-in body parser so formidable can read the stream
@@ -50,20 +50,28 @@ export default async function handler(req, res) {
   const file = Array.isArray(files.file) ? files.file[0] : files.file;
   if (!file) return res.status(400).json({ error: 'No file field in upload' });
 
-  // Validate filename → { name, spec } both lowercased
-  const parsed = parseFilename(file.originalFilename || '');
-  if (!parsed) {
-    return res.status(400).json({ error: 'Filename must be NAME_SPEC.csv with a valid WoW specialization (e.g. noxfred_demonology.csv)' });
-  }
-  const { name, spec } = parsed;
-
-  // Parse CSV content
+  // Parse CSV content first (we need it to extract identity from row 1)
   const csvText = readFileSync(file.filepath, 'utf8');
   let gains;
   try {
     gains = parseDroptimizerCSV(csvText);
   } catch (err) {
     return res.status(400).json({ error: 'Invalid CSV format: ' + err.message });
+  }
+
+  // Extract name+spec from CSV content (row 1 "name" column), fall back to filename
+  const parsed = parseCsvIdentity(csvText) ?? parseFilename(file.originalFilename || '');
+  if (!parsed) {
+    return res.status(400).json({ error: 'Could not determine character name and spec. Make sure you are uploading a Raidbots droptimizer CSV.' });
+  }
+  const { name, spec } = parsed;
+
+  // Validate that the CSV difficulty matches the selected tab
+  const csvDifficulty = parseCsvDifficulty(csvText);
+  if (csvDifficulty && csvDifficulty !== difficulty) {
+    return res.status(400).json({
+      error: `This CSV contains ${csvDifficulty} data but you are uploading to ${difficulty}. Please select the correct difficulty tab.`,
+    });
   }
 
   // Store player data in KV

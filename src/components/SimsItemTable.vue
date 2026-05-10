@@ -12,7 +12,7 @@
             >
               <div class="player-header">
                 <span class="player-name">{{ capitalize(player.name) }}</span>
-                <span class="player-spec">{{ player.spec }}</span>
+                <span v-if="player.spec" class="player-spec">{{ player.spec }}</span>
               </div>
             </th>
           </tr>

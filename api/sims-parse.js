@@ -1,46 +1,6 @@
 // api/sims-parse.js
 // Pure CSV parsing and matrix building — no side effects, no KV, no HTTP
 
-const VALID_SPECS = new Set([
-  "blood",
-  "frost",
-  "unholy",
-  "havoc",
-  "vengeance",
-  "devourer",
-  "balance",
-  "feral",
-  "guardian",
-  "restoration",
-  "beastmastery",
-  "marksmanship",
-  "survival",
-  "arcane",
-  "fire",
-  "brewmaster",
-  "mistweaver",
-  "windwalker",
-  "holy",
-  "protection",
-  "retribution",
-  "discipline",
-  "shadow",
-  "assassination",
-  "outlaw",
-  "subtlety",
-  "elemental",
-  "enhancement",
-  "affliction",
-  "demonology",
-  "destruction",
-  "arms",
-  "fury",
-  "preservation",
-  "devastation",
-  "augmentation",
-  // NOTE: 'devourer' intentionally excluded — not a real WoW spec
-]);
-
 /**
  * Parse a droptimizer CSV filename into { name, spec }.
  * Name and spec are both lowercased.
@@ -49,12 +9,56 @@ const VALID_SPECS = new Set([
  */
 export function parseFilename(filename) {
   const base = filename.endsWith(".csv") ? filename.slice(0, -4) : filename;
-  const lastUnderscore = base.lastIndexOf("_");
-  if (lastUnderscore === -1) return null;
-  const name = base.slice(0, lastUnderscore).toLowerCase();
-  const spec = base.slice(lastUnderscore + 1).toLowerCase();
-  if (!name || !VALID_SPECS.has(spec)) return null;
-  return { name, spec };
+  return parseIdentity(base);
+}
+
+/**
+ * Extract { name, spec } from row 1's "name" column inside the CSV content itself.
+ * Raidbots sets this to the same "name_spec" string as the filename.
+ * Returns null if not found or spec not recognized.
+ */
+export function parseCsvIdentity(csvText) {
+  const lines = csvText.trim().split(/\r?\n/);
+  if (lines.length < 2) return null;
+  const header = lines[0].split(",");
+  const nameIdx = header.indexOf("name");
+  if (nameIdx === -1) return null;
+  const identity = lines[1].split(",")[nameIdx];
+  if (!identity) return null;
+  return parseIdentity(identity);
+}
+
+/**
+ * Detect the raid difficulty embedded in item sim rows.
+ * Item row name format: "zone/cat/raid-mythic/itemId/..."
+ * Returns "mythic", "heroic", or null if not determinable.
+ */
+export function parseCsvDifficulty(csvText) {
+  const lines = csvText.trim().split(/\r?\n/);
+  if (lines.length < 3) return null;
+  const header = lines[0].split(",");
+  const nameIdx = header.indexOf("name");
+  if (nameIdx === -1) return null;
+  for (let i = 2; i < lines.length; i++) {
+    const cols = lines[i].split(",");
+    const parts = (cols[nameIdx] ?? "").split("/");
+    if (parts.length < 3) continue;
+    const diff = parts[2].toLowerCase();
+    if (diff === "raid-mythic") return "mythic";
+    if (diff === "raid-heroic") return "heroic";
+  }
+  return null;
+}
+
+function parseIdentity(str) {
+  const s = str.toLowerCase().trim();
+  if (!s) return null;
+  const lastUnderscore = s.lastIndexOf("_");
+  if (lastUnderscore === -1) return { name: s, spec: null };
+  const name = s.slice(0, lastUnderscore);
+  const spec = s.slice(lastUnderscore + 1);
+  if (!name) return null;
+  return { name, spec: spec || null };
 }
 
 /**

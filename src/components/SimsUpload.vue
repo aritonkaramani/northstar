@@ -37,8 +37,8 @@
         </div>
         <div v-else class="drop-zone-inner">
           <span class="drop-icon">📂</span>
-          <span class="drop-label">Drop your <code>NAME_SPEC.csv</code> here</span>
-          <span class="drop-hint">or click to browse · max 50 KB</span>
+          <span class="drop-label">Drop your droptimizer CSV here</span>
+          <span class="drop-hint">or click to browse · no renaming needed · max 50 KB</span>
         </div>
       </div>
 
@@ -53,7 +53,7 @@
           >
             <span class="chip-dot" />
             <span class="chip-name">{{ item.displayName }}</span>
-            <span v-if="item.spec" class="chip-spec">{{ item.spec }}</span>
+            <span v-for="spec in item.specs" :key="spec" class="chip-spec">{{ spec }}</span>
           </div>
         </div>
         <div v-else class="chips-empty">No roster data available</div>
@@ -90,11 +90,11 @@ export default defineComponent({
     const uploadError = ref<string | null>(null);
     const fileInput   = ref<HTMLInputElement | null>(null);
 
-    // Find the first uploader whose stored name contains the roster name (or exact match).
+    // Find ALL uploaders whose stored name contains the roster name (or exact match).
     // Handles cases like "aniimuzzmythic" matching roster player "aniimuzz".
-    function findUploader(rosterName: string): Uploader | undefined {
+    function findUploaders(rosterName: string): Uploader[] {
       const needle = rosterName.toLowerCase();
-      return props.uploaders.find(u => {
+      return props.uploaders.filter(u => {
         const hay = u.name.toLowerCase();
         return hay === needle || hay.includes(needle);
       });
@@ -102,12 +102,12 @@ export default defineComponent({
 
     const expectedWithStatus = computed(() =>
       props.expected.map(name => {
-        const uploader = findUploader(name);
+        const uploaders = findUploaders(name);
         return {
           name,
           displayName: name.charAt(0).toUpperCase() + name.slice(1),
-          uploaded: !!uploader,
-          spec: uploader?.spec ?? null,
+          uploaded: uploaders.length > 0,
+          specs: uploaders.map(u => u.spec),
         };
       })
     );

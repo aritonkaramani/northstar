@@ -1,0 +1,113 @@
+[
+    {
+        "id": 1308,
+        "name": "March on Quel'Danas",
+        "description": "Darkness has eclipsed the Isle of Quel'Danas, clouding the skies above Silvermoon City. With Arator the Redeemer by their side, the Champions of Azeroth must march on the Sunwell before the light of the blood elves is lost forever.",
+        "image_button": "ui-ej-dungeonbutton-darkwell",
+        "image_button_small": "lfgicon-darkwell",
+        "image_background": "ui-ej-background-darkwell",
+        "flags": 0,
+        "type_id": 2,
+        "type": "raid",
+        "encounters": [
+            {
+                "id": 2739,
+                "name": "Belo'ren, Child of Al'ar",
+                "icon": "ui-ej-boss-light_void_phoenix",
+                "order": 0,
+                "flags": 0,
+                "difficulty_mask": 255
+            },
+            {
+                "id": 2740,
+                "name": "Midnight Falls",
+                "icon": "ui-ej-boss-lura-midnight",
+                "order": 1,
+                "flags": 0,
+                "difficulty_mask": -1
+            }
+        ]
+    },
+    {
+        "id": 1314,
+        "name": "The Dreamrift",
+        "description": "The Dreamrift exists deep within the Rift of Aln, where the dreams of Aln'hara took form long ago. Dark manifestations have grown within the rift in Aln'hara's absence, devouring each other in an endless cycle. Even the brave haranir dare not delve too deep, for now something greater and more terrible lurks within the Dreamrift's depths.",
+        "image_button": "ui-ej-dungeonbutton-riftofaln",
+        "image_button_small": "lfgicon-riftofaln",
+        "image_background": "ui-ej-background-riftofaln",
+        "flags": 0,
+        "type_id": 2,
+        "type": "raid",
+        "encounters": [
+            {
+                "id": 2795,
+                "name": "Chimaerus the Undreamt God",
+                "icon": "ui-ej-boss-malformed_manifestation",
+                "order": 1,
+                "flags": 0,
+                "difficulty_mask": 255
+            }
+        ]
+    },
+    {
+        "id": 1307,
+        "name": "The Voidspire",
+        "description": "From high above the Voidstorm, Xal'atath has gathered the Devouring Host beneath her dark banner. The towering Voidspire looms like a spear of darkness, a citadel guarded by an army of the void. The forces of the light - led by Alleria Windrunner and the Champions of Azeroth - must rally for one last desperate assault before all is lost.",
+        "image_button": "ui-ej-dungeonbutton-voidspire",
+        "image_button_small": "lfgicon-voidspire",
+        "image_background": "ui-ej-background-voidspire",
+        "flags": 0,
+        "type_id": 2,
+        "type": "raid",
+        "encounters": [
+            {
+                "id": 2733,
+                "name": "Imperator Averzian",
+                "icon": "ui-ej-boss-host_general",
+                "order": 0,
+                "flags": 0,
+                "difficulty_mask": 255
+            },
+            {
+                "id": 2734,
+                "name": "Vorasius",
+                "icon": "ui-ej-boss-kaiju",
+                "order": 1,
+                "flags": 0,
+                "difficulty_mask": 255
+            },
+            {
+                "id": 2736,
+                "name": "Fallen-King Salhadaar",
+                "icon": "ui-ej-boss-salhadaar",
+                "order": 2,
+                "flags": 0,
+                "difficulty_mask": 255
+            },
+            {
+                "id": 2735,
+                "name": "Vaelgor & Ezzorak",
+                "icon": "ui-ej-boss-dragon_duo",
+                "order": 3,
+                "flags": 0,
+                "difficulty_mask": 255
+            },
+            {
+                "id": 2737,
+                "name": "Lightblinded Vanguard",
+                "icon": "ui-ej-boss-paladin_trio",
+                "order": 4,
+                "flags": 0,
+                "difficulty_mask": 255
+            },
+            {
+                "id": 2738,
+                "name": "Crown of the Cosmos",
+                "icon": "ui-ej-boss-alleria",
+                "order": 5,
+                "flags": 0,
+                "difficulty_mask": 255
+            }
+        ]
+    }
+]

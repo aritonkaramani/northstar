@@ -50,6 +50,12 @@
         >
           Player View
         </button>
+        <button
+          :class="['view-tab', { active: view === 'bosses' }]"
+          @click="view = 'bosses'"
+        >
+          Boss View
+        </button>
       </div>
 
       <div v-if="!result.players.length" class="state-msg">
@@ -64,6 +70,12 @@
           :matrix="result.matrix"
         />
         <SimsPlayerCards
+          v-else-if="view === 'players'"
+          :items="result.items"
+          :players="result.players"
+          :matrix="result.matrix"
+        />
+        <SimsBossView
           v-else
           :items="result.items"
           :players="result.players"
@@ -79,17 +91,18 @@ import { defineComponent, ref, watch, onMounted } from "vue";
 import SimsUpload from "../components/SimsUpload.vue";
 import SimsItemTable from "../components/SimsItemTable.vue";
 import SimsPlayerCards from "../components/SimsPlayerCards.vue";
+import SimsBossView from "../components/SimsBossView.vue";
 
 export default defineComponent({
   name: "SimsView",
-  components: { SimsUpload, SimsItemTable, SimsPlayerCards },
+  components: { SimsUpload, SimsItemTable, SimsPlayerCards, SimsBossView },
 
   setup() {
     const difficulties = ["mythic", "heroic"] as const;
     type Difficulty = (typeof difficulties)[number];
 
     const difficulty = ref<Difficulty>("mythic");
-    const view = ref<"items" | "players">("items");
+    const view = ref<"items" | "players" | "bosses">("items");
     const loading = ref(true);
     const error = ref<string | null>(null);
     const resetting = ref(false);

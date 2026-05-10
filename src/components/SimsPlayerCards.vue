@@ -7,7 +7,7 @@
     >
       <div class="card-header">
         <span class="card-name">{{ capitalize(player.name) }}</span>
-        <span class="card-spec">{{ player.spec }}</span>
+        <span v-if="player.spec" class="card-spec">{{ player.spec }}</span>
       </div>
       <div class="card-body">
         <template v-if="topUpgrades(j).length">

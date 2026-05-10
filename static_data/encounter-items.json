@@ -1,0 +1,4143 @@
+[
+    {
+        "id": 249275,
+        "name": "Bulwark of Noble Resolve",
+        "icon": "inv_shield_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 6,
+        "inventoryType": 14,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 40,
+                "alloc": 4890
+            },
+            {
+                "id": 32,
+                "alloc": 2110
+            },
+            {
+                "id": 5,
+                "alloc": 16132
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249276,
+        "name": "Grimoire of the Eternal Light",
+        "icon": "inv_offhand_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 23,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4785
+            },
+            {
+                "id": 36,
+                "alloc": 2215
+            },
+            {
+                "id": 5,
+                "alloc": 16132
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249277,
+        "name": "Bellamy's Final Judgement",
+        "icon": "inv_mace_2h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 5,
+        "inventoryType": 17,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4929
+            },
+            {
+                "id": 32,
+                "alloc": 2071
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249278,
+        "name": "Alnscorned Spire",
+        "icon": "inv_staff_2h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 10,
+        "inventoryType": 17,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4821
+            },
+            {
+                "id": 40,
+                "alloc": 2179
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249279,
+        "name": "Sunstrike Rifle",
+        "icon": "inv_firearm_2h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 3,
+        "inventoryType": 26,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4924
+            },
+            {
+                "id": 49,
+                "alloc": 2076
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249280,
+        "name": "Emblazoned Sunglaive",
+        "icon": "inv_glaive_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 9,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4810
+            },
+            {
+                "id": 49,
+                "alloc": 2190
+            },
+            {
+                "id": 5,
+                "alloc": 25370
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249281,
+        "name": "Blade of the Final Twilight",
+        "icon": "inv_sword_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 7,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4698
+            },
+            {
+                "id": 49,
+                "alloc": 2302
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249283,
+        "name": "Belo'melorn, the Shattered Talon",
+        "icon": "inv_knife_1h_raidmidnight_d_02",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 15,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4755
+            },
+            {
+                "id": 49,
+                "alloc": 2245
+            },
+            {
+                "id": 5,
+                "alloc": 25370
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249284,
+        "name": "Belo'ren's Swift Talon",
+        "icon": "inv_knife_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 15,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4964
+            },
+            {
+                "id": 49,
+                "alloc": 2036
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249286,
+        "name": "Brazier of the Dissonant Dirge",
+        "icon": "inv_staff_2h_raidmidnight_d_02",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 10,
+        "inventoryType": 17,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 7000
+            },
+            {
+                "id": 5,
+                "alloc": 18121
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249287,
+        "name": "Clutchmates' Caress",
+        "icon": "inv_mace_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 4,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4812
+            },
+            {
+                "id": 36,
+                "alloc": 2188
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249288,
+        "name": "Ranger-Captain's Lethal Recurve",
+        "icon": "inv_bow_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 2,
+        "inventoryType": 15,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4945
+            },
+            {
+                "id": 36,
+                "alloc": 2055
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249293,
+        "name": "Weight of Command",
+        "icon": "inv_mace_1h_raidmidnight_d_02",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 4,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4559
+            },
+            {
+                "id": 40,
+                "alloc": 2441
+            },
+            {
+                "id": 5,
+                "alloc": 25370
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249294,
+        "name": "Blade of the Blind Verdict",
+        "icon": "inv_sword_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 7,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4606
+            },
+            {
+                "id": 49,
+                "alloc": 2394
+            },
+            {
+                "id": 5,
+                "alloc": 25370
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249295,
+        "name": "Turalyon's False Echo",
+        "icon": "inv_mace_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 4,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4977
+            },
+            {
+                "id": 32,
+                "alloc": 2023
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249296,
+        "name": "Alah'endal, the Dawnsong",
+        "icon": "inv_axe_2h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 1,
+        "inventoryType": 17,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 7000
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249298,
+        "name": "Tormentor's Bladed Fists",
+        "icon": "inv_hand_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 13,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4621
+            },
+            {
+                "id": 40,
+                "alloc": 2379
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249302,
+        "name": "Inescapable Reach",
+        "icon": "inv_polearm_2h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 6,
+        "inventoryType": 17,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4904
+            },
+            {
+                "id": 49,
+                "alloc": 2096
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249303,
+        "name": "Waistcord of the Judged",
+        "icon": "inv_belt_mail_raidevokermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4609
+            },
+            {
+                "id": 40,
+                "alloc": 2391
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249304,
+        "name": "Fallen King's Cuffs",
+        "icon": "inv_bracer_mail_raidshamanmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 9,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4729
+            },
+            {
+                "id": 32,
+                "alloc": 2271
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249305,
+        "name": "Slippers of the Midnight Flame",
+        "icon": "inv_boot_cloth_raidwarlockmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4626
+            },
+            {
+                "id": 36,
+                "alloc": 2374
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249306,
+        "name": "Devouring Night's Visage",
+        "icon": "inv_helm_leather_raiddemonhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 1,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4945
+            },
+            {
+                "id": 32,
+                "alloc": 2055
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249307,
+        "name": "Emberborn Grasps",
+        "icon": "inv_glove_plate_raidpaladinmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 10,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4619
+            },
+            {
+                "id": 40,
+                "alloc": 2381
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249308,
+        "name": "Despotic Raiment",
+        "icon": "inv_robe_cloth_raidpriestmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 20,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4891
+            },
+            {
+                "id": 32,
+                "alloc": 2109
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249309,
+        "name": "Sunbound Breastplate",
+        "icon": "inv_chest_plate_raidpaladinmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 5,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4601
+            },
+            {
+                "id": 32,
+                "alloc": 2399
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249310,
+        "name": "Robes of the Voidbound",
+        "icon": "inv_robe_mail_raidshamanmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 20,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4682
+            },
+            {
+                "id": 32,
+                "alloc": 2318
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249311,
+        "name": "Lightblood Greaves",
+        "icon": "inv_pant_plate_raidpaladinmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 7,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4792
+            },
+            {
+                "id": 36,
+                "alloc": 2208
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249312,
+        "name": "Nightblade's Pantaloons",
+        "icon": "inv_pant_leather_raidroguemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 7,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4573
+            },
+            {
+                "id": 49,
+                "alloc": 2427
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249313,
+        "name": "Light-Judged Spaulders",
+        "icon": "inv_shoulder_plate_raidpaladinmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 3,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4719
+            },
+            {
+                "id": 36,
+                "alloc": 2281
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249314,
+        "name": "Twisted Twilight Sash",
+        "icon": "inv_belt_leather_raiddemonhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4796
+            },
+            {
+                "id": 40,
+                "alloc": 2204
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249315,
+        "name": "Voracious Wristwraps",
+        "icon": "inv_bracer_cloth_raidpriestmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 9,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4594
+            },
+            {
+                "id": 49,
+                "alloc": 2406
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249316,
+        "name": "Crown of the Fractured Tyrant",
+        "icon": "inv_plate_raiddeathknightmidnight_d_01_helm",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 1,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 40,
+                "alloc": 4944
+            },
+            {
+                "id": 36,
+                "alloc": 2056
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249317,
+        "name": "Frenzy's Rebuke",
+        "icon": "inv_helm_mail_raidevokermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 1,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4828
+            },
+            {
+                "id": 36,
+                "alloc": 2172
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249318,
+        "name": "Nullwalker's Dread Epaulettes",
+        "icon": "inv_shoulder_mail_raidevokermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 3,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4570
+            },
+            {
+                "id": 49,
+                "alloc": 2430
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249319,
+        "name": "Endless March Waistwrap",
+        "icon": "inv_belt_cloth_raidpriestmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4982
+            },
+            {
+                "id": 32,
+                "alloc": 2018
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249320,
+        "name": "Sabatons of Obscurement",
+        "icon": "inv_boot_mail_raidevokermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 40,
+                "alloc": 4756
+            },
+            {
+                "id": 32,
+                "alloc": 2244
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249321,
+        "name": "Vaelgor's Fearsome Grasp",
+        "icon": "inv_glove_leather_raiddruidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 10,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4892
+            },
+            {
+                "id": 49,
+                "alloc": 2108
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249322,
+        "name": "Radiant Clutchtender's Jerkin",
+        "icon": "inv_chest_leather_raidmonkmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 5,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4787
+            },
+            {
+                "id": 49,
+                "alloc": 2213
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249323,
+        "name": "Leggings of the Devouring Advance",
+        "icon": "inv_pant_cloth_raidmagemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 7,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4645
+            },
+            {
+                "id": 40,
+                "alloc": 2355
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249324,
+        "name": "Eternal Flame Scaleguards",
+        "icon": "inv_pant_mail_raidhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 7,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4766
+            },
+            {
+                "id": 36,
+                "alloc": 2234
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249325,
+        "name": "Untethered Berserker's Grips",
+        "icon": "inv_glove_mail_raidhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 10,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4758
+            },
+            {
+                "id": 32,
+                "alloc": 2242
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249326,
+        "name": "Light's March Bracers",
+        "icon": "inv_bracer_plate_raidwarriormidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 9,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4986
+            },
+            {
+                "id": 49,
+                "alloc": 2014
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249327,
+        "name": "Void-Skinned Bracers",
+        "icon": "inv_bracer_leather_raidroguemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 9,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4686
+            },
+            {
+                "id": 36,
+                "alloc": 2314
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249328,
+        "name": "Echoing Void Mantle",
+        "icon": "inv_shoulder_cloth_raidmagemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 3,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4928
+            },
+            {
+                "id": 49,
+                "alloc": 2072
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249329,
+        "name": "Gaze of the Unrestrained",
+        "icon": "inv_helm_cloth_raidwarlockmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 1,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4789
+            },
+            {
+                "id": 36,
+                "alloc": 2211
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249330,
+        "name": "War Chaplain's Grips",
+        "icon": "inv_glove_cloth_raidwarlockmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 10,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4994
+            },
+            {
+                "id": 40,
+                "alloc": 2006
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249331,
+        "name": "Ezzorak's Gloombind",
+        "icon": "inv_belt_plate_raidwarriormidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4867
+            },
+            {
+                "id": 49,
+                "alloc": 2133
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249332,
+        "name": "Parasite Stompers",
+        "icon": "inv_boot_plate_raidpaladinmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4904
+            },
+            {
+                "id": 36,
+                "alloc": 2096
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249333,
+        "name": "Blooming Barklight Spaulders",
+        "icon": "inv_shoulder_leather_raiddruidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 3,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4869
+            },
+            {
+                "id": 40,
+                "alloc": 2131
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249334,
+        "name": "Void-Claimed Shinkickers",
+        "icon": "inv_boot_leather_raiddemonhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 40,
+                "alloc": 4632
+            },
+            {
+                "id": 36,
+                "alloc": 2368
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249335,
+        "name": "Imperator's Banner",
+        "icon": "inv_plate_raiddeathknightmidnight_d_01_cape",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 16,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 71,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4559
+            },
+            {
+                "id": 40,
+                "alloc": 2441
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249336,
+        "name": "Signet of the Starved Beast",
+        "icon": "inv_12_jewelry_devouringhost_ring_silver2",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 11,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 13750
+            },
+            {
+                "id": 40,
+                "alloc": 3750
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249337,
+        "name": "Ribbon of Coiled Malice",
+        "icon": "inv_12_jewelry_devouringhost_necklace_bronze",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 2,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 13000
+            },
+            {
+                "id": 36,
+                "alloc": 4500
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249339,
+        "name": "Gloom-Spattered Dreadscale",
+        "icon": "inv_12_trinket_raid_voidspire_tank1_smolderinggloomscale",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            66,
+            73,
+            104,
+            250,
+            268,
+            581
+        ],
+        "stats": [
+            {
+                "id": 32,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "onUseTrinket": true,
+        "expansion": 11
+    },
+    {
+        "id": 249340,
+        "name": "Wraps of Cosmic Madness",
+        "icon": "inv_12_trinket_raid_voidspire_intdps1_wrapsofcosmicmadness",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            62,
+            63,
+            64,
+            102,
+            258,
+            262,
+            265,
+            266,
+            267,
+            1467,
+            1473,
+            1480
+        ],
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "onUseTrinket": true,
+        "expansion": 11
+    },
+    {
+        "id": 249341,
+        "name": "Volatile Void Suffuser",
+        "icon": "inv_12_trinket_raid_voidspire_healer1_volatilevoidsuffuser",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            65,
+            105,
+            256,
+            257,
+            264,
+            270,
+            1468
+        ],
+        "stats": [
+            {
+                "id": 36,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249342,
+        "name": "Heart of Ancient Hunger",
+        "icon": "inv_12_trinket_raid_voidspire_strdps_hearthofancienthunger",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            66,
+            70,
+            71,
+            72,
+            73,
+            250,
+            251,
+            252
+        ],
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249343,
+        "name": "Gaze of the Alnseer",
+        "icon": "inv_12_trinket_raid_dreamrift_gazeofthealnseer",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "stats": [
+            {
+                "id": 49,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249344,
+        "name": "Light Company Guidon",
+        "icon": "inv_12_trinket_raid_voidspire_physdps1_armyoflightbanner",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            70,
+            71,
+            72,
+            103,
+            251,
+            252,
+            253,
+            254,
+            255,
+            259,
+            260,
+            261,
+            263,
+            269,
+            577
+        ],
+        "stats": [
+            {
+                "id": 72,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2733
+            }
+        ],
+        "onUseTrinket": true,
+        "expansion": 11
+    },
+    {
+        "id": 249345,
+        "name": "Ranger-Captain's Iridescent Insignia",
+        "icon": "inv_12_trinket_raid_voidspire_agidps_rangercaptainsinsignia",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            103,
+            253,
+            254,
+            255,
+            259,
+            260,
+            261,
+            263,
+            269,
+            577
+        ],
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "onUseTrinket": true,
+        "expansion": 11
+    },
+    {
+        "id": 249346,
+        "name": "Vaelgor's Final Stare",
+        "icon": "inv_12_trinket_raid_voidspire_int1_voiddragoneye",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            62,
+            63,
+            64,
+            65,
+            102,
+            105,
+            256,
+            257,
+            258,
+            262,
+            264,
+            265,
+            266,
+            267,
+            270,
+            1467,
+            1468,
+            1473,
+            1480
+        ],
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "onUseTrinket": true,
+        "expansion": 11
+    },
+    {
+        "id": 249347,
+        "name": "Alnwoven Riftbloom",
+        "icon": "inv_12_trinket_rutaani_currency_blue",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            5,
+            8,
+            9
+        ],
+        "specs": [
+            62,
+            63,
+            64,
+            256,
+            257,
+            258,
+            265,
+            266,
+            267
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "contains": [
+            250054,
+            250063,
+            250045
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249348,
+        "name": "Alncured Riftbloom",
+        "icon": "inv_12_trinket_rutaani_currency_yellow",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            4,
+            10,
+            11,
+            12
+        ],
+        "specs": [
+            102,
+            103,
+            104,
+            105,
+            259,
+            260,
+            261,
+            268,
+            269,
+            270,
+            577,
+            581,
+            1480
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "contains": [
+            250009,
+            250018,
+            250027,
+            250036
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249349,
+        "name": "Alncast Riftbloom",
+        "icon": "inv_12_trinket_rutaani_currency_purple",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            3,
+            7,
+            13
+        ],
+        "specs": [
+            253,
+            254,
+            255,
+            262,
+            263,
+            264,
+            1444,
+            1448,
+            1465,
+            1467,
+            1468,
+            1473
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "contains": [
+            249991,
+            249982,
+            250000
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249350,
+        "name": "Alnforged Riftbloom",
+        "icon": "inv_12_trinket_rutaani_currency_pink",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            1,
+            2,
+            6
+        ],
+        "specs": [
+            65,
+            66,
+            70,
+            71,
+            72,
+            73,
+            250,
+            251,
+            252
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "contains": [
+            249955,
+            249964,
+            249973
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249351,
+        "name": "Voidwoven Hungering Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency3_silver",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            5,
+            8,
+            9
+        ],
+        "specs": [
+            62,
+            63,
+            64,
+            256,
+            257,
+            258,
+            265,
+            266,
+            267
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "contains": [
+            250052,
+            250061,
+            250043
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249352,
+        "name": "Voidcured Hungering Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency3_silver",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            4,
+            10,
+            11,
+            12
+        ],
+        "specs": [
+            102,
+            103,
+            104,
+            105,
+            259,
+            260,
+            261,
+            268,
+            269,
+            270,
+            577,
+            581,
+            1480
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "contains": [
+            250007,
+            250016,
+            250025,
+            250034
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249353,
+        "name": "Voidcast Hungering Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency3_dark",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            3,
+            7,
+            13
+        ],
+        "specs": [
+            253,
+            254,
+            255,
+            262,
+            263,
+            264,
+            1444,
+            1448,
+            1465,
+            1467,
+            1468,
+            1473
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "contains": [
+            249989,
+            249980,
+            249998
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249354,
+        "name": "Voidforged Hungering Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency3_bronze",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            1,
+            2,
+            6
+        ],
+        "specs": [
+            65,
+            66,
+            70,
+            71,
+            72,
+            73,
+            250,
+            251,
+            252
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "contains": [
+            249953,
+            249962,
+            249971
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249355,
+        "name": "Voidwoven Fanatical Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency1_void",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            5,
+            8,
+            9
+        ],
+        "specs": [
+            62,
+            63,
+            64,
+            256,
+            257,
+            258,
+            265,
+            266,
+            267
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "contains": [
+            250051,
+            250060,
+            250042
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249356,
+        "name": "Voidcured Fanatical Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency1_silver",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            4,
+            10,
+            11,
+            12
+        ],
+        "specs": [
+            102,
+            103,
+            104,
+            105,
+            259,
+            260,
+            261,
+            268,
+            269,
+            270,
+            577,
+            581,
+            1480
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "contains": [
+            250006,
+            250015,
+            250024,
+            250033
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249357,
+        "name": "Voidcast Fanatical Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency1_dark",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            3,
+            7,
+            13
+        ],
+        "specs": [
+            253,
+            254,
+            255,
+            262,
+            263,
+            264,
+            1444,
+            1448,
+            1465,
+            1467,
+            1468,
+            1473
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "contains": [
+            249988,
+            249979,
+            249997
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249358,
+        "name": "Voidforged Fanatical Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency1_bronze",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            1,
+            2,
+            6
+        ],
+        "specs": [
+            65,
+            66,
+            70,
+            71,
+            72,
+            73,
+            250,
+            251,
+            252
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "contains": [
+            249952,
+            249961,
+            249970
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249359,
+        "name": "Voidwoven Corrupted Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency2_void",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            5,
+            8,
+            9
+        ],
+        "specs": [
+            62,
+            63,
+            64,
+            256,
+            257,
+            258,
+            265,
+            266,
+            267
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "contains": [
+            250050,
+            250059,
+            250041
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249360,
+        "name": "Voidcured Corrupted Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency2_silver",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            4,
+            10,
+            11,
+            12
+        ],
+        "specs": [
+            102,
+            103,
+            104,
+            105,
+            259,
+            260,
+            261,
+            268,
+            269,
+            270,
+            577,
+            581,
+            1480
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "contains": [
+            250005,
+            250014,
+            250023,
+            250032
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249361,
+        "name": "Voidcast Corrupted Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency2_dark",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            3,
+            7,
+            13
+        ],
+        "specs": [
+            253,
+            254,
+            255,
+            262,
+            263,
+            264,
+            1444,
+            1448,
+            1465,
+            1467,
+            1468,
+            1473
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "contains": [
+            249987,
+            249978,
+            249996
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249362,
+        "name": "Voidforged Corrupted Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency2_bronze",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            1,
+            2,
+            6
+        ],
+        "specs": [
+            65,
+            66,
+            70,
+            71,
+            72,
+            73,
+            250,
+            251,
+            252
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "contains": [
+            249951,
+            249960,
+            249969
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249363,
+        "name": "Voidwoven Unraveled Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency_void",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            5,
+            8,
+            9
+        ],
+        "specs": [
+            62,
+            63,
+            64,
+            256,
+            257,
+            258,
+            265,
+            266,
+            267
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "contains": [
+            250049,
+            250058,
+            250040
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249364,
+        "name": "Voidcured Unraveled Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency_silver",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            4,
+            10,
+            11,
+            12
+        ],
+        "specs": [
+            102,
+            103,
+            104,
+            105,
+            259,
+            260,
+            261,
+            268,
+            269,
+            270,
+            577,
+            581,
+            1480
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "contains": [
+            250004,
+            250013,
+            250022,
+            250031
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249365,
+        "name": "Voidcast Unraveled Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency_dark",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            3,
+            7,
+            13
+        ],
+        "specs": [
+            253,
+            254,
+            255,
+            262,
+            263,
+            264,
+            1444,
+            1448,
+            1465,
+            1467,
+            1468,
+            1473
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "contains": [
+            249986,
+            249977,
+            249995
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249366,
+        "name": "Voidforged Unraveled Nullcore",
+        "icon": "inv_12_trinket_devouring_host_currency_bronze",
+        "quality": 4,
+        "itemClass": 15,
+        "itemSubClass": 0,
+        "itemLevel": 219,
+        "allowableClasses": [
+            1,
+            2,
+            6
+        ],
+        "specs": [
+            65,
+            66,
+            70,
+            71,
+            72,
+            73,
+            250,
+            251,
+            252
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2736
+            }
+        ],
+        "contains": [
+            249950,
+            249959,
+            249968
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249367,
+        "name": "Chiming Void Curio",
+        "icon": "trade_archaeology_naarucrystal",
+        "quality": 4,
+        "itemClass": 5,
+        "itemSubClass": 2,
+        "itemLevel": 219,
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "contains": [
+            249973,
+            249971,
+            249970,
+            249969,
+            249968,
+            250036,
+            250034,
+            250033,
+            250032,
+            250031,
+            250027,
+            250025,
+            250024,
+            250023,
+            250022,
+            250000,
+            249998,
+            249997,
+            249996,
+            249995,
+            249991,
+            249989,
+            249988,
+            249987,
+            249986,
+            250063,
+            250061,
+            250060,
+            250059,
+            250058,
+            250018,
+            250016,
+            250015,
+            250014,
+            250013,
+            249964,
+            249962,
+            249961,
+            249960,
+            249959,
+            250052,
+            250051,
+            250050,
+            250054,
+            250049,
+            250009,
+            250007,
+            250006,
+            250005,
+            250004,
+            249982,
+            249980,
+            249979,
+            249978,
+            249977,
+            250043,
+            250042,
+            250041,
+            250045,
+            250040,
+            249955,
+            249953,
+            249952,
+            249951,
+            249950
+        ],
+        "expansion": 11,
+        "slotItemSequenceOffsets": {
+            "hands": -2,
+            "shoulder": -2,
+            "legs": -1,
+            "head": -1,
+            "chest": -1
+        }
+    },
+    {
+        "id": 249368,
+        "name": "Eternal Voidsong Chain",
+        "icon": "inv_12_jewelry_silvermoonelf_necklace_blue1",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 2,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 14700
+            },
+            {
+                "id": 49,
+                "alloc": 2800
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738,
+                "veryRare": true
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249369,
+        "name": "Bond of Light",
+        "icon": "inv_12_jewelry_silvermoonelf_ring_blue1",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 11,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 14250
+            },
+            {
+                "id": 36,
+                "alloc": 3250
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249370,
+        "name": "Draconic Nullcape",
+        "icon": "inv_cape_plate_raidpaladinmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 16,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 71,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4707
+            },
+            {
+                "id": 49,
+                "alloc": 2293
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2735
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249371,
+        "name": "Scornbane Waistguard",
+        "icon": "inv_belt_mail_raidhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4926
+            },
+            {
+                "id": 49,
+                "alloc": 2074
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249373,
+        "name": "Dream-Scorched Striders",
+        "icon": "inv_boot_cloth_raidmagemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4842
+            },
+            {
+                "id": 32,
+                "alloc": 2158
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249374,
+        "name": "Scorn-Scarred Shul'ka's Belt",
+        "icon": "inv_belt_leather_raidmonkmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4849
+            },
+            {
+                "id": 32,
+                "alloc": 2151
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249376,
+        "name": "Whisper-Inscribed Sash",
+        "icon": "inv_belt_cloth_raidmagemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4651
+            },
+            {
+                "id": 36,
+                "alloc": 2349
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249377,
+        "name": "Darkstrider Treads",
+        "icon": "inv_boot_mail_raidhuntermidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4967
+            },
+            {
+                "id": 36,
+                "alloc": 2033
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249380,
+        "name": "Hate-Tied Waistchain",
+        "icon": "inv_plate_raiddeathknightmidnight_d_01_belt",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 6,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4913
+            },
+            {
+                "id": 32,
+                "alloc": 2087
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249381,
+        "name": "Greaves of the Unformed",
+        "icon": "inv_boot_plate_raidwarriormidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4688
+            },
+            {
+                "id": 49,
+                "alloc": 2312
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249382,
+        "name": "Canopy Walker's Footwraps",
+        "icon": "inv_boot_leather_raiddruidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 8,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4586
+            },
+            {
+                "id": 32,
+                "alloc": 2414
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249805,
+        "name": "Undreamt God's Oozing Vestige",
+        "icon": "inv_12_trinket_raid_dreamrift__physdps2_umdreamtgodsoozingvestige",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            70,
+            71,
+            72,
+            103,
+            251,
+            252,
+            253,
+            254,
+            255,
+            259,
+            260,
+            261,
+            263,
+            269,
+            577
+        ],
+        "stats": [
+            {
+                "id": 72,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249806,
+        "name": "Radiant Plume",
+        "icon": "inv_12_dualityphoenix_holy_feather",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "itemLimit": {
+            "category": 704,
+            "quantity": 1
+        },
+        "specs": [
+            66,
+            70,
+            71,
+            72,
+            73,
+            103,
+            104,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            259,
+            260,
+            261,
+            263,
+            268,
+            269,
+            577,
+            581
+        ],
+        "stats": [
+            {
+                "id": 72,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249807,
+        "name": "The Eternal Egg",
+        "icon": "inv_12_trinket_raid_darkwell_tank2_phoenixegg",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            66,
+            73,
+            104,
+            250,
+            268,
+            581
+        ],
+        "stats": [
+            {
+                "id": 72,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249808,
+        "name": "Litany of Lightblind Wrath",
+        "icon": "inv_12_trinket_raid_voidspire_healer2_litanyoflightblindwrath",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            65,
+            105,
+            256,
+            257,
+            264,
+            270,
+            1468
+        ],
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2737
+            }
+        ],
+        "onUseTrinket": true,
+        "expansion": 11
+    },
+    {
+        "id": 249809,
+        "name": "Locus-Walker's Ribbon",
+        "icon": "inv_12_trinket_raid_voidspire_int2_locuswalkerslastribbon",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            62,
+            63,
+            64,
+            65,
+            102,
+            105,
+            256,
+            257,
+            258,
+            262,
+            264,
+            265,
+            266,
+            267,
+            270,
+            1467,
+            1468,
+            1473,
+            1480
+        ],
+        "stats": [
+            {
+                "id": 49,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249810,
+        "name": "Shadow of the Empyrean Requiem",
+        "icon": "inv_12_trinket_raid_darkwell_intdps2",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            62,
+            63,
+            64,
+            102,
+            258,
+            262,
+            265,
+            266,
+            267,
+            1467,
+            1473,
+            1480
+        ],
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249811,
+        "name": "Light of the Cosmic Crescendo",
+        "icon": "inv_12_trinket_raid_darkwelle_healer3_cosmiccrescendo",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "specs": [
+            65,
+            105,
+            256,
+            257,
+            264,
+            270,
+            1468
+        ],
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249912,
+        "name": "Robes of Endless Oblivion",
+        "icon": "inv_chest_cloth_raidwarlockmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 1,
+        "inventoryType": 20,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 5,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 7000
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249913,
+        "name": "Mask of Darkest Intent",
+        "icon": "inv_helm_leather_raidroguemidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 2,
+        "inventoryType": 1,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 7000
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249914,
+        "name": "Oblivion Guise",
+        "icon": "inv_helm_mail_raidshamanmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 3,
+        "inventoryType": 1,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 7000
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249915,
+        "name": "Extinction Guards",
+        "icon": "inv_plate_raiddeathknightmidnight_d_01_pant",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 4,
+        "inventoryType": 7,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 74,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 7000
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249919,
+        "name": "Sin'dorei Band of Hope",
+        "icon": "inv_12_jewelry_silvermoonelf_ring_red1",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 11,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 14350
+            },
+            {
+                "id": 49,
+                "alloc": 3150
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249920,
+        "name": "Eye of Midnight",
+        "icon": "inv_12_jewelry_devouringhost_ring_bronze",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 11,
+        "itemLevel": 197,
+        "hasSockets": true,
+        "socketInfo": {
+            "sockets": [
+                {
+                    "type": "PRISMATIC"
+                }
+            ]
+        },
+        "uniqueEquipped": true,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 17500
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740,
+                "veryRare": true
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249921,
+        "name": "Thalassian Dawnguard",
+        "icon": "inv_shield_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 6,
+        "inventoryType": 14,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 4,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 40,
+                "alloc": 4921
+            },
+            {
+                "id": 32,
+                "alloc": 2079
+            },
+            {
+                "id": 5,
+                "alloc": 16132
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249922,
+        "name": "Tome of Alnscorned Regret",
+        "icon": "inv_offhand_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 23,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 36,
+                "alloc": 4889
+            },
+            {
+                "id": 49,
+                "alloc": 2111
+            },
+            {
+                "id": 5,
+                "alloc": 16132
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1314,
+                "encounterId": 2795
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 249925,
+        "name": "Hungering Victory",
+        "icon": "inv_knife_1h_raidmidnight_d_02",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 15,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 4844
+            },
+            {
+                "id": 40,
+                "alloc": 2156
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2734
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 250247,
+        "name": "Amulet of the Abyssal Hymn",
+        "icon": "inv_12_jewelry_devouringhost_necklace_bronze2",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 2,
+        "itemLevel": 197,
+        "hasSockets": true,
+        "socketInfo": {
+            "sockets": [
+                {
+                    "type": "PRISMATIC"
+                }
+            ]
+        },
+        "stats": [
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 49,
+                "alloc": 15000
+            },
+            {
+                "id": 36,
+                "alloc": 2500
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 260235,
+        "name": "Umbral Plume",
+        "icon": "inv_12_dualityphoenix_void_feather",
+        "quality": 4,
+        "itemClass": 4,
+        "itemSubClass": 0,
+        "inventoryType": 12,
+        "itemLevel": 197,
+        "itemLimit": {
+            "category": 704,
+            "quantity": 1
+        },
+        "specs": [
+            66,
+            70,
+            71,
+            72,
+            73,
+            103,
+            104,
+            250,
+            251,
+            252,
+            253,
+            254,
+            255,
+            259,
+            260,
+            261,
+            263,
+            268,
+            269,
+            577,
+            581
+        ],
+        "stats": [
+            {
+                "id": 72,
+                "alloc": 6666
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2739
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 260408,
+        "name": "Lightless Lament",
+        "icon": "inv_glaive_1h_darknaaru_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 9,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "uniqueEquipped": true,
+        "stats": [
+            {
+                "id": 73,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 7000
+            },
+            {
+                "id": 5,
+                "alloc": 25370
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1308,
+                "encounterId": 2740
+            }
+        ],
+        "expansion": 11
+    },
+    {
+        "id": 260423,
+        "name": "Arator's Swift Remembrance",
+        "icon": "inv_sword_1h_raidmidnight_d_01",
+        "quality": 4,
+        "itemClass": 2,
+        "itemSubClass": 7,
+        "inventoryType": 13,
+        "itemLevel": 197,
+        "stats": [
+            {
+                "id": 3,
+                "alloc": 5259
+            },
+            {
+                "id": 7,
+                "alloc": 7889
+            },
+            {
+                "id": 32,
+                "alloc": 4900
+            },
+            {
+                "id": 36,
+                "alloc": 2100
+            }
+        ],
+        "sources": [
+            {
+                "instanceId": 1307,
+                "encounterId": 2738
+            }
+        ],
+        "expansion": 11
+    }
+]
