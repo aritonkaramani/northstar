@@ -88,7 +88,7 @@ export function buildEmbedUrl(platform, clipId) {
     throw new TypeError('buildEmbedUrl: clipId must be a non-empty string');
   }
   if (platform === 'twitch') {
-    return `https://clips.twitch.tv/embed?clip=${encodeURIComponent(clipId)}&parent=northstarguild.com&autoplay=false&muted=true`;
+    return `https://clips.twitch.tv/embed?clip=${encodeURIComponent(clipId)}&parent=www.northstarguild.com&autoplay=false&muted=true`;
   }
   if (platform === 'youtube') {
     return `https://www.youtube.com/embed/${encodeURIComponent(clipId)}?autoplay=0`;

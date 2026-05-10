@@ -5,7 +5,7 @@
         <iframe
           :src="clip.embedUrl"
           class="embed-frame"
-          sandbox="allow-scripts allow-same-origin allow-presentation"
+          sandbox="allow-scripts allow-same-origin"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           allowfullscreen
         />
