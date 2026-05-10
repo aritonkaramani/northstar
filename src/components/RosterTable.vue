@@ -8,27 +8,38 @@
           <th class="col-num">Keys</th>
           <th class="col-num">Best</th>
           <th class="col-vault">Vault</th>
+          <th v-if="editable" class="col-actions">Actions</th>
         </tr>
       </thead>
       <tbody>
         <template v-for="(m, i) in members" :key="i">
           <tr v-if="m.separator" class="separator-row">
-            <td colspan="5" />
+            <td :colspan="editable ? 6 : 5" />
           </tr>
           <tr v-else-if="m.empty" class="empty-row">
-            <td colspan="5" />
+            <td :colspan="editable ? 6 : 5" />
           </tr>
           <tr v-else>
             <td class="char-name">
-              <a
-                v-if="m.name && m.realm"
-                :href="`https://raider.io/characters/eu/${m.realm}/${m.name}`"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="char-link"
-                :style="{ color: m.classColor }"
-              >{{ m.name }}</a>
-              <span v-else class="char-label" :style="{ color: m.classColor }">{{ m.name }}</span>
+              <template v-if="editable && editingIndex === i">
+                <input
+                  v-model="editValue"
+                  class="edit-input"
+                  @keydown.enter="saveEdit(m, i)"
+                  @keydown.esc="cancelEdit"
+                />
+              </template>
+              <template v-else>
+                <a
+                  v-if="m.name && m.realm"
+                  :href="`https://raider.io/characters/eu/${m.realm}/${m.name}`"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="char-link"
+                  :style="{ color: m.classColor }"
+                >{{ m.name }}</a>
+                <span v-else class="char-label" :style="{ color: m.classColor }">{{ m.name }}</span>
+              </template>
             </td>
             <td class="ilvl">{{ m.itemLevel || '—' }}</td>
             <td class="keys">{{ m.keysThisWeek }}</td>
@@ -40,6 +51,16 @@
                 :class="['vault-slot', slot ? 'vault-slot--unlocked' : 'vault-slot--locked']"
               >{{ slot ? '+' + slot : '—' }}</span>
             </td>
+            <td v-if="editable" class="actions-cell">
+              <template v-if="editingIndex === i">
+                <button class="action-btn" title="Save" @click="saveEdit(m, i)">✓</button>
+                <button class="action-btn" title="Cancel" @click="cancelEdit">✕</button>
+              </template>
+              <template v-else>
+                <button class="action-btn" title="Edit" @click="startEdit(m, i)">✏</button>
+                <button class="action-btn action-btn--delete" title="Delete" @click="$emit('delete', m._entry)">🗑</button>
+              </template>
+            </td>
           </tr>
         </template>
       </tbody>
@@ -48,7 +69,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 
 interface RosterMember {
   separator?: boolean;
@@ -61,6 +82,7 @@ interface RosterMember {
   keysThisWeek?: number;
   highestKey?: number;
   vaultSlots?: (number | null)[];
+  _entry?: string;
 }
 
 export default defineComponent({
@@ -70,6 +92,35 @@ export default defineComponent({
       type: Array as PropType<RosterMember[]>,
       required: true,
     },
+    editable: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['delete', 'edit'],
+  setup(_, { emit }) {
+    const editingIndex = ref<number | null>(null);
+    const editValue = ref('');
+
+    function startEdit(m: RosterMember, i: number) {
+      editingIndex.value = i;
+      editValue.value = m._entry ?? m.name ?? '';
+    }
+
+    function cancelEdit() {
+      editingIndex.value = null;
+      editValue.value = '';
+    }
+
+    function saveEdit(m: RosterMember, _i: number) {
+      const newEntry = editValue.value.trim();
+      if (newEntry && newEntry !== m._entry) {
+        emit('edit', { oldEntry: m._entry, newEntry });
+      }
+      cancelEdit();
+    }
+
+    return { editingIndex, editValue, startEdit, cancelEdit, saveEdit };
   },
 });
 </script>
@@ -206,5 +257,46 @@ export default defineComponent({
     background: rgba(255, 255, 255, 0.02);
     border-color: rgba(255, 255, 255, 0.05);
   }
+}
+
+// Actions column
+.col-actions {
+  width: 72px;
+}
+
+.actions-cell {
+  white-space: nowrap;
+  text-align: center !important;
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  color: #6e7074;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: color 0.15s;
+
+  &:hover { color: #c0c0c0; }
+
+  &--delete:hover { color: #c0392b; }
+
+  & + & { margin-left: 2px; }
+}
+
+.edit-input {
+  background: #252629;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 4px;
+  color: #e8e8e8;
+  font-size: 0.85rem;
+  padding: 3px 6px;
+  width: 100%;
+  outline: none;
+
+  &:focus { border-color: #c9a227; }
 }
 </style>

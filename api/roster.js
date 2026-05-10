@@ -2,6 +2,7 @@ import { parse } from "cookie";
 import jwt from "jsonwebtoken";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { kv } from "@vercel/kv";
 
 // Official WoW class colours
 const CLASS_COLORS = {
@@ -33,10 +34,11 @@ function parseCharacter(entry) {
   if (entry === "---") return { separator: true };
   if (entry === "") return { empty: true };
   const dashIndex = entry.indexOf("-");
-  if (dashIndex === -1) return { name: entry, realm: "ravencrest" };
+  if (dashIndex === -1) return { name: entry, realm: "ravencrest", _entry: entry };
   return {
     name: entry.slice(0, dashIndex),
     realm: toRealmSlug(entry.slice(dashIndex + 1)),
+    _entry: entry,
   };
 }
 
@@ -44,7 +46,7 @@ async function enrichCharacter(char) {
   if (char.separator) return { separator: true };
   if (char.empty) return { empty: true };
 
-  const { name, realm } = char;
+  const { name, realm, _entry } = char;
   const rioRes = await fetch(
     `https://raider.io/api/v1/characters/profile?region=eu&realm=${encodeURIComponent(realm)}&name=${encodeURIComponent(name)}&fields=mythic_plus_weekly_highest_level_runs,gear`,
   );
@@ -77,6 +79,7 @@ async function enrichCharacter(char) {
     keysThisWeek,
     highestKey,
     vaultSlots,
+    _entry,
   };
 }
 
@@ -91,41 +94,139 @@ function buildList(results) {
   return items;
 }
 
-export default async function handler(req, res) {
-  // Auth check
-  try {
-    const sessionCookie = parse(req.headers.cookie || "").session;
-    if (!sessionCookie)
-      return res.status(401).json({ error: "Not authenticated" });
-    jwt.verify(sessionCookie, process.env.JWT_SECRET);
-  } catch {
-    return res.status(401).json({ error: "Invalid session" });
-  }
-
-  try {
+async function getSection(section) {
+  const key = `roster:${section}`;
+  let entries = await kv.get(key);
+  if (!entries || !Array.isArray(entries)) {
+    // Seed from config file
     const configPath = join(process.cwd(), "roster.config.json");
     const config = JSON.parse(readFileSync(configPath, "utf8"));
-
-    // Support legacy "characters" key or new "mains"/"alts" split
-    const mainEntries = (config.mains ?? config.characters ?? []).map(
-      parseCharacter,
-    );
-    const altEntries = (config.alts ?? []).map(parseCharacter);
-
-    const [mainResults, altResults] = await Promise.all([
-      Promise.allSettled(mainEntries.map(enrichCharacter)),
-      Promise.allSettled(altEntries.map(enrichCharacter)),
-    ]);
-
-    const toMembers = (results) => buildList(results);
-
-    res.setHeader("Cache-Control", "no-store");
-    res.status(200).json({
-      mains: toMembers(mainResults),
-      alts: toMembers(altResults),
-    });
-  } catch (err) {
-    console.error("Roster error:", err);
-    res.status(500).json({ error: "Internal error" });
+    entries =
+      section === "mains"
+        ? config.mains ?? config.characters ?? []
+        : config.alts ?? [];
+    await kv.set(key, entries);
   }
+  return entries;
+}
+
+function requireAuth(req, res) {
+  try {
+    const sessionCookie = parse(req.headers.cookie || "").session;
+    if (!sessionCookie) {
+      res.status(401).json({ error: "Not authenticated" });
+      return false;
+    }
+    jwt.verify(sessionCookie, process.env.JWT_SECRET, { algorithms: ["HS256"] });
+    return true;
+  } catch {
+    res.status(401).json({ error: "Invalid session" });
+    return false;
+  }
+}
+
+function requireJson(req, res) {
+  const ct = req.headers["content-type"] ?? "";
+  if (!ct.includes("application/json")) {
+    res.status(415).json({ error: "Content-Type must be application/json" });
+    return false;
+  }
+  return true;
+}
+
+export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "no-store");
+
+  if (!requireAuth(req, res)) return;
+
+  const method = req.method;
+
+  if (method === "GET") {
+    try {
+      const [mainEntries, altEntries] = await Promise.all([
+        getSection("mains"),
+        getSection("alts"),
+      ]);
+
+      const [mainResults, altResults] = await Promise.all([
+        Promise.allSettled(mainEntries.map(parseCharacter).map(enrichCharacter)),
+        Promise.allSettled(altEntries.map(parseCharacter).map(enrichCharacter)),
+      ]);
+
+      res.status(200).json({
+        mains: buildList(mainResults),
+        alts: buildList(altResults),
+      });
+    } catch (err) {
+      console.error("Roster GET error:", err);
+      res.status(500).json({ error: "Internal error" });
+    }
+    return;
+  }
+
+  if (method === "POST") {
+    if (!requireJson(req, res)) return;
+    const { section, entry } = req.body ?? {};
+    if (!["mains", "alts"].includes(section)) {
+      return res.status(400).json({ error: "section must be 'mains' or 'alts'" });
+    }
+    if (!entry || entry === "---" || entry === "") {
+      return res.status(400).json({ error: "entry must be a non-empty character string" });
+    }
+    try {
+      const entries = await getSection(section);
+      entries.push(entry);
+      await kv.set(`roster:${section}`, entries);
+      return res.status(201).json({ ok: true });
+    } catch (err) {
+      console.error("Roster POST error:", err);
+      return res.status(500).json({ error: "Internal error" });
+    }
+  }
+
+  if (method === "DELETE") {
+    if (!requireJson(req, res)) return;
+    const { section, entry } = req.body ?? {};
+    if (!["mains", "alts"].includes(section)) {
+      return res.status(400).json({ error: "section must be 'mains' or 'alts'" });
+    }
+    if (!entry) {
+      return res.status(400).json({ error: "entry is required" });
+    }
+    try {
+      const entries = await getSection(section);
+      const idx = entries.indexOf(entry);
+      if (idx === -1) return res.status(404).json({ error: "Entry not found" });
+      entries.splice(idx, 1);
+      await kv.set(`roster:${section}`, entries);
+      return res.status(200).json({ ok: true });
+    } catch (err) {
+      console.error("Roster DELETE error:", err);
+      return res.status(500).json({ error: "Internal error" });
+    }
+  }
+
+  if (method === "PATCH") {
+    if (!requireJson(req, res)) return;
+    const { section, oldEntry, newEntry } = req.body ?? {};
+    if (!["mains", "alts"].includes(section)) {
+      return res.status(400).json({ error: "section must be 'mains' or 'alts'" });
+    }
+    if (!oldEntry || !newEntry || newEntry === "---" || newEntry === "") {
+      return res.status(400).json({ error: "oldEntry and a valid newEntry are required" });
+    }
+    try {
+      const entries = await getSection(section);
+      const idx = entries.indexOf(oldEntry);
+      if (idx === -1) return res.status(404).json({ error: "Entry not found" });
+      entries[idx] = newEntry;
+      await kv.set(`roster:${section}`, entries);
+      return res.status(200).json({ ok: true });
+    } catch (err) {
+      console.error("Roster PATCH error:", err);
+      return res.status(500).json({ error: "Internal error" });
+    }
+  }
+
+  return res.status(405).json({ error: "Method not allowed" });
 }
