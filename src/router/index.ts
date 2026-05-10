@@ -23,6 +23,10 @@ const routes: RouteRecordRaw[] = [
         path: 'sims',
         component: () => import('../views/SimsView.vue'),
       },
+      {
+        path: 'clips',
+        component: () => import('../views/ClipsView.vue'),
+      },
     ],
   },
   {

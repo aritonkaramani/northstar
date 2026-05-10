@@ -16,6 +16,9 @@
       <RouterLink to="/members/sims" active-class="active" class="nav-item">
         📊 Sims
       </RouterLink>
+      <RouterLink to="/members/clips" active-class="active" class="nav-item">
+        🎬 Clips
+      </RouterLink>
       <div class="nav-divider" />
       <RouterLink to="/" class="nav-item nav-item--back">
         ← Guild Site

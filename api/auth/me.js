@@ -6,8 +6,9 @@ export default function handler(req, res) {
     const sessionCookie = parse(req.headers.cookie || "").session;
     if (!sessionCookie) return res.status(401).json({ error: "Not authenticated" });
 
-    const { battleTag, verified } = jwt.verify(sessionCookie, process.env.JWT_SECRET);
-    res.status(200).json({ battleTag, verified });
+    const { sub, battleTag, verified } = jwt.verify(sessionCookie, process.env.JWT_SECRET);
+    // sub is absent on tokens minted before the clips feature — graceful degradation
+    res.status(200).json({ id: sub ?? null, battleTag, verified });
   } catch {
     res.status(401).json({ error: "Invalid or expired session" });
   }

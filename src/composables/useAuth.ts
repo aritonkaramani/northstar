@@ -1,6 +1,7 @@
 import { ref } from 'vue';
 
 interface User {
+  id: string | null;
   battleTag: string;
   verified: boolean;
 }

@@ -69,6 +69,8 @@ export default async function handler(req, res) {
       userinfoRes.json(),
     ]);
 
+    if (!userinfo?.id) return res.redirect(302, "/?error=api_error");
+
     // Collect all character IDs the user owns
     const characterIds = new Set(
       profile.wow_accounts?.flatMap(
@@ -94,7 +96,7 @@ export default async function handler(req, res) {
 
     // Sign session JWT and set HTTP-only cookie
     const token = jwt.sign(
-      { battleTag: userinfo.battletag, verified: true },
+      { sub: String(userinfo.id), battleTag: userinfo.battletag, verified: true },
       process.env.JWT_SECRET,
       { expiresIn: "7d" },
     );
