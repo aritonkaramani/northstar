@@ -5,8 +5,8 @@
 import { parse as parseCookie } from 'cookie';
 import jwt from 'jsonwebtoken';
 import { kv } from '@vercel/kv';
-import { parseClipUrl } from '../clips-parse.js';
-import { getClips, addClip } from '../clips-kv.js';
+import { parseClipUrl } from '../_clips-parse.js';
+import { getClips, addClip } from '../_clips-kv.js';
 
 function getSession(req) {
   try {

@@ -6,7 +6,7 @@ import { parse as parseCookie } from 'cookie';
 import jwt from 'jsonwebtoken';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { getUploaders } from './sims-kv.js';
+import { getUploaders } from './_sims-kv.js';
 
 const VALID_DIFFICULTIES = new Set(['mythic', 'heroic']);
 

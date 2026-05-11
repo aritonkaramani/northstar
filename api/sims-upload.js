@@ -7,8 +7,8 @@ import jwt from 'jsonwebtoken';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import formidable from 'formidable';
-import { parseFilename, parseCsvIdentity, parseCsvDifficulty, parseDroptimizerCSV, buildMatrix } from './sims-parse.js';
-import { playerKey, addPlayerKey, getAllPlayers, upsertUploader, setPlayerData, setResult } from './sims-kv.js';
+import { parseFilename, parseCsvIdentity, parseCsvDifficulty, parseDroptimizerCSV, buildMatrix } from './_sims-parse.js';
+import { playerKey, addPlayerKey, getAllPlayers, upsertUploader, setPlayerData, setResult } from './_sims-kv.js';
 
 // Required: disable Vercel's built-in body parser so formidable can read the stream
 export const config = { api: { bodyParser: false } };

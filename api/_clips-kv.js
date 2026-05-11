@@ -2,7 +2,7 @@
 // All Vercel KV operations for the clips feature.
 
 import { kv } from '@vercel/kv';
-import { buildEmbedUrl } from './clips-parse.js';
+import { buildEmbedUrl } from './_clips-parse.js';
 
 const CLIPS_KEY = 'clips:all';
 const LOCK_KEY = 'clips:lock';

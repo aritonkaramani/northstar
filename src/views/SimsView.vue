@@ -178,7 +178,7 @@ export default defineComponent({
       resetting.value = true;
       try {
         const res = await fetch(
-          `/api/sims-reset?difficulty=${difficulty.value}`,
+          `/api/sims-result?difficulty=${difficulty.value}`,
           {
             method: "DELETE",
             credentials: "include",
