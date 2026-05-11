@@ -13,6 +13,9 @@
       <RouterLink to="/members/roster" active-class="active" class="nav-item">
         ⚔️ Roster
       </RouterLink>
+      <RouterLink to="/members/absence" active-class="active" class="nav-item">
+        📅 Absence
+      </RouterLink>
       <RouterLink to="/members/sims" active-class="active" class="nav-item">
         📊 Sims
       </RouterLink>
