@@ -45,102 +45,117 @@
               >
                 <div>{{ boss.name }}</div>
                 <div class="boss-healer-config">
-                  <template v-if="isGM">
-                    <input
-                      type="number"
-                      class="healer-input"
-                      :value="bossConfig[boss.id]?.healers ?? 4"
-                      min="3"
-                      max="5"
-                      @change="updateBossHealers(boss.id, Number(($event.target as HTMLInputElement).value))"
-                    /> Healers
-                  </template>
-                  <template v-else>
-                    Healers: {{ bossConfig[boss.id]?.healers ?? 4 }}
-                  </template>
+                  <input
+                    type="number"
+                    class="healer-input"
+                    :value="bossConfig[boss.id]?.healers ?? 4"
+                    min="3"
+                    max="5"
+                    @change="
+                      updateBossHealers(
+                        boss.id,
+                        Number(($event.target as HTMLInputElement).value),
+                      )
+                    "
+                  />
+                  Healers
                 </div>
               </th>
               <th class="col-count">Bosses</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="player in mains" :key="player" :class="{ 'row-absent': isAbsent(player) }">
-              <td class="col-player" :class="{ 'player-absent': isAbsent(player) }" :style="{ color: isAbsent(player) ? undefined : classColor(player) }">{{ player }}</td>
+            <tr
+              v-for="player in mains"
+              :key="player"
+              :class="{ 'row-absent': isAbsent(player) }"
+            >
+              <td
+                class="col-player"
+                :class="{ 'player-absent': isAbsent(player) }"
+                :style="{
+                  color: isAbsent(player) ? undefined : classColor(player),
+                }"
+              >
+                {{ player }}
+              </td>
               <td class="col-class">
-                <template v-if="isGM">
-                  <select
-                    class="meta-select"
-                    :value="playerMeta[player]?.class ?? ''"
-                    @change="
-                      updateMeta(
-                        player,
-                        'class',
-                        ($event.target as HTMLSelectElement).value,
-                      )
-                    "
-                  >
-                    <option value="">—</option>
-                    <option v-for="cls in WOW_CLASSES" :key="cls" :value="cls">
-                      {{ cls }}
-                    </option>
-                  </select>
-                </template>
-                <template v-else>
-                  <span :style="{ color: classColor(player) }">{{
-                    playerMeta[player]?.class ?? "—"
-                  }}</span>
-                </template>
+                <select
+                  class="meta-select"
+                  :value="playerMeta[player]?.class ?? ''"
+                  @change="
+                    updateMeta(
+                      player,
+                      'class',
+                      ($event.target as HTMLSelectElement).value,
+                    )
+                  "
+                >
+                  <option value="">—</option>
+                  <option v-for="cls in WOW_CLASSES" :key="cls" :value="cls">
+                    {{ cls }}
+                  </option>
+                </select>
               </td>
               <td class="col-role">
-                <template v-if="isGM">
-                  <select
-                    class="meta-select meta-select--role"
-                    :value="playerMeta[player]?.role ?? ''"
-                    @change="
-                      updateMeta(
-                        player,
-                        'role',
-                        ($event.target as HTMLSelectElement).value,
-                      )
-                    "
-                  >
-                    <option value="">—</option>
-                    <option value="Tank">Tank</option>
-                    <option value="Healer">Healer</option>
-                    <option value="DPS">DPS</option>
-                  </select>
-                </template>
-                <template v-else>
-                  <span class="role-badge" :class="`role-badge--${(playerMeta[player]?.role ?? '').toLowerCase()}`">{{
-                    playerMeta[player]?.role ?? "—"
-                  }}</span>
-                </template>
+                <select
+                  class="meta-select meta-select--role"
+                  :value="playerMeta[player]?.role ?? ''"
+                  @change="
+                    updateMeta(
+                      player,
+                      'role',
+                      ($event.target as HTMLSelectElement).value,
+                    )
+                  "
+                >
+                  <option value="">—</option>
+                  <option value="Tank">Tank</option>
+                  <option value="Healer">Healer</option>
+                  <option value="DPS">DPS</option>
+                </select>
               </td>
               <td class="col-flex">
-                <template v-if="isGM && playerMeta[player]?.role">
+                <template v-if="playerMeta[player]?.role">
                   <div class="flex-labels-group">
-                    <label v-for="flexRole in flexOptionsFor(player)" :key="flexRole" class="flex-label">
+                    <label
+                      v-for="flexRole in flexOptionsFor(player)"
+                      :key="flexRole"
+                      class="flex-label"
+                    >
                       <input
                         type="checkbox"
-                        :checked="(playerMeta[player]?.flexRoles ?? []).includes(flexRole)"
-                        @change="updateFlex(player, flexRole, ($event.target as HTMLInputElement).checked)"
+                        :checked="
+                          (playerMeta[player]?.flexRoles ?? []).includes(
+                            flexRole,
+                          )
+                        "
+                        @change="
+                          updateFlex(
+                            player,
+                            flexRole,
+                            ($event.target as HTMLInputElement).checked,
+                          )
+                        "
                       />
                       {{ flexRole }}
                     </label>
                   </div>
                 </template>
                 <template v-else>
-                  <span class="flex-display">
-                    {{ (playerMeta[player]?.flexRoles ?? []).map(r => '+' + r).join(' / ') || '—' }}
-                  </span>
+                  <span class="flex-display">—</span>
                 </template>
               </td>
               <td class="col-out">
                 <input
                   type="checkbox"
                   :checked="isAbsent(player)"
-                  :disabled="!isGM"
-                  @change="isGM && toggleAbsent(player, ($event.target as HTMLInputElement).checked)"
+                  @change="
+                    toggleAbsent(
+                      player,
+                      ($event.target as HTMLInputElement).checked,
+                    )
+                  "
                 />
               </td>
               <td v-for="boss in BOSSES" :key="boss.id" class="col-boss-cell">
@@ -156,7 +171,14 @@
                   "
                 />
               </td>
-              <td class="col-count" :class="{ 'count-vault': playerBossCount(player) >= 6, 'count-low': playerBossCount(player) > 0 && playerBossCount(player) < 6 }">
+              <td
+                class="col-count"
+                :class="{
+                  'count-vault': playerBossCount(player) >= 6,
+                  'count-low':
+                    playerBossCount(player) > 0 && playerBossCount(player) < 6,
+                }"
+              >
                 {{ playerBossCount(player) }}/{{ BOSSES.length }}
               </td>
             </tr>
@@ -267,13 +289,20 @@ export default defineComponent({
       loading.value = true;
       error.value = null;
       try {
-        const [rosterRes, metaRes, raidRes, absentRes, bossConfigRes] = await Promise.all([
-          fetch("/api/roster", { credentials: "include" }),
-          fetch("/api/roster?resource=player-meta", { credentials: "include" }),
-          fetch("/api/roster?resource=raid-roster", { credentials: "include" }),
-          fetch("/api/roster?resource=absent", { credentials: "include" }),
-          fetch("/api/roster?resource=boss-config", { credentials: "include" }),
-        ]);
+        const [rosterRes, metaRes, raidRes, absentRes, bossConfigRes] =
+          await Promise.all([
+            fetch("/api/roster", { credentials: "include" }),
+            fetch("/api/roster?resource=player-meta", {
+              credentials: "include",
+            }),
+            fetch("/api/roster?resource=raid-roster", {
+              credentials: "include",
+            }),
+            fetch("/api/roster?resource=absent", { credentials: "include" }),
+            fetch("/api/roster?resource=boss-config", {
+              credentials: "include",
+            }),
+          ]);
         if (!rosterRes.ok) throw new Error(`Roster ${rosterRes.status}`);
         const rosterData = await rosterRes.json();
         // Mains are enriched objects; extract plain names (skip separators/empty)
@@ -518,7 +547,9 @@ export default defineComponent({
         if (prev) {
           bossConfig.value[bossId] = prev;
         } else {
-          delete (bossConfig.value as Record<string, { healers: number }>)[bossId];
+          delete (bossConfig.value as Record<string, { healers: number }>)[
+            bossId
+          ];
         }
         console.error(`updateBossHealers failed: ${res.status}`);
       }
@@ -526,9 +557,7 @@ export default defineComponent({
 
     const ROLES: Array<"Tank" | "Healer" | "DPS"> = ["Tank", "Healer", "DPS"];
 
-    function flexOptionsFor(
-      player: string,
-    ): Array<"Tank" | "Healer" | "DPS"> {
+    function flexOptionsFor(player: string): Array<"Tank" | "Healer" | "DPS"> {
       const primaryRole = playerMeta.value[player]?.role;
       return ROLES.filter((r) => r !== primaryRole);
     }
@@ -683,9 +712,17 @@ export default defineComponent({
 
     // Sticky first columns
     .col-player,
-    th.col-player { position: sticky; left: 0; z-index: 2; }
+    th.col-player {
+      position: sticky;
+      left: 0;
+      z-index: 2;
+    }
     .col-class,
-    th.col-class { position: sticky; left: 130px; z-index: 2; }
+    th.col-class {
+      position: sticky;
+      left: 130px;
+      z-index: 2;
+    }
 
     th,
     td {
@@ -756,16 +793,22 @@ export default defineComponent({
       &:nth-child(even) {
         background: rgba(255, 255, 255, 0.018);
         td.col-player,
-        td.col-class { background: #0e0f11; }
+        td.col-class {
+          background: #0e0f11;
+        }
       }
       &:nth-child(odd) {
         td.col-player,
-        td.col-class { background: #0a0a0c; }
+        td.col-class {
+          background: #0a0a0c;
+        }
       }
       &:hover {
         background: rgba(201, 162, 39, 0.05);
         td.col-player,
-        td.col-class { background: #161408; }
+        td.col-class {
+          background: #161408;
+        }
       }
       &:last-child td {
         border-bottom: none;

@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import MembersSidebar from '../components/MembersSidebar.vue';
+import { defineComponent } from "vue";
+import MembersSidebar from "../components/MembersSidebar.vue";
 
 export default defineComponent({
-  name: 'MembersArea',
+  name: "MembersArea",
   components: { MembersSidebar },
 });
 </script>
@@ -34,15 +34,14 @@ export default defineComponent({
 
   .sidebar {
     padding: 0;
-    width: 14rem;
-    min-width: 14rem;
-    background-color: #1a1b1e;
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
-    align-self: flex-start;
+    width: 3.5rem;
+    min-width: 3.5rem;
+    flex-shrink: 0;
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow-y: hidden;
+    overflow: visible;
+    z-index: 10;
   }
 
   .component-wrapper {
@@ -76,4 +75,3 @@ export default defineComponent({
   }
 }
 </style>
-
