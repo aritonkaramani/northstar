@@ -16,8 +16,12 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/MembersHome.vue'),
       },
       {
-        path: 'roster',
+        path: 'characters',
         component: () => import('../views/RosterView.vue'),
+      },
+      {
+        path: 'roster',
+        component: () => import('../views/RaidRosterView.vue'),
       },
       {
         path: 'absence',

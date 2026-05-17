@@ -10,8 +10,15 @@
       <RouterLink to="/members" exact-active-class="active" class="nav-item">
         🏠 Home
       </RouterLink>
+      <RouterLink
+        to="/members/characters"
+        active-class="active"
+        class="nav-item"
+      >
+        🧑‍🤝‍🧑 Characters
+      </RouterLink>
       <RouterLink to="/members/roster" active-class="active" class="nav-item">
-        ⚔️ Roster
+        📋 Roster
       </RouterLink>
       <RouterLink to="/members/absence" active-class="active" class="nav-item">
         📅 Absence
@@ -31,13 +38,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
-export default defineComponent({ name: 'MembersSidebar' });
+export default defineComponent({ name: "MembersSidebar" });
 </script>
 
 <style lang="scss">
-@use './sidebar.scss';
+@use "./sidebar.scss";
 </style>
 
 <style lang="scss" scoped>
@@ -84,7 +91,10 @@ export default defineComponent({ name: 'MembersSidebar' });
   font-size: 0.85rem;
   border-radius: 6px;
   border: 1px solid transparent;
-  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    background 0.15s,
+    border-color 0.15s;
 
   &:hover {
     color: #e0e0e0;
@@ -101,7 +111,10 @@ export default defineComponent({ name: 'MembersSidebar' });
     color: #555;
     font-size: 0.8rem;
 
-    &:hover { color: #888; background: none; }
+    &:hover {
+      color: #888;
+      background: none;
+    }
   }
 }
 </style>
