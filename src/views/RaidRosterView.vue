@@ -159,17 +159,39 @@
                 />
               </td>
               <td v-for="boss in BOSSES" :key="boss.id" class="col-boss-cell">
-                <input
-                  type="checkbox"
-                  :checked="isAssigned(boss.id, player)"
-                  @change="
-                    toggleAssignment(
-                      boss.id,
-                      player,
-                      ($event.target as HTMLInputElement).checked,
-                    )
-                  "
-                />
+                <div class="boss-cell">
+                  <input
+                    type="checkbox"
+                    :checked="isAssigned(boss.id, player)"
+                    @change="
+                      toggleAssignment(
+                        boss.id,
+                        player,
+                        ($event.target as HTMLInputElement).checked,
+                      )
+                    "
+                  />
+                  <select
+                    v-if="isAssigned(boss.id, player)"
+                    class="boss-class-select"
+                    :value="effectiveClass(boss.id, player)"
+                    :style="{ color: effectiveClassColor(boss.id, player) }"
+                    @change="
+                      updateBossClass(
+                        boss.id,
+                        player,
+                        ($event.target as HTMLSelectElement).value || null,
+                      )
+                    "
+                  >
+                    <option value="">
+                      {{ playerMeta[player]?.class || "—" }}
+                    </option>
+                    <option v-for="cls in WOW_CLASSES" :key="cls" :value="cls">
+                      {{ cls }}
+                    </option>
+                  </select>
+                </div>
               </td>
               <td
                 class="col-count"
@@ -284,25 +306,29 @@ export default defineComponent({
     const actionError = ref<string | null>(null);
     const absent = ref<string[]>([]);
     const bossConfig = ref<Record<string, { healers: number }>>({});
+    const bossClassOverrides = ref<Record<string, Record<string, string>>>({});
 
     async function fetchAll() {
       loading.value = true;
       error.value = null;
       try {
-        const [rosterRes, metaRes, raidRes, absentRes, bossConfigRes] =
-          await Promise.all([
-            fetch("/api/roster", { credentials: "include" }),
-            fetch("/api/roster?resource=player-meta", {
-              credentials: "include",
-            }),
-            fetch("/api/roster?resource=raid-roster", {
-              credentials: "include",
-            }),
-            fetch("/api/roster?resource=absent", { credentials: "include" }),
-            fetch("/api/roster?resource=boss-config", {
-              credentials: "include",
-            }),
-          ]);
+        const [
+          rosterRes,
+          metaRes,
+          raidRes,
+          absentRes,
+          bossConfigRes,
+          bossClassRes,
+        ] = await Promise.all([
+          fetch("/api/roster", { credentials: "include" }),
+          fetch("/api/roster?resource=player-meta", { credentials: "include" }),
+          fetch("/api/roster?resource=raid-roster", { credentials: "include" }),
+          fetch("/api/roster?resource=absent", { credentials: "include" }),
+          fetch("/api/roster?resource=boss-config", { credentials: "include" }),
+          fetch("/api/roster?resource=boss-class-override", {
+            credentials: "include",
+          }),
+        ]);
         if (!rosterRes.ok) throw new Error(`Roster ${rosterRes.status}`);
         const rosterData = await rosterRes.json();
         // Mains are enriched objects; extract plain names (skip separators/empty)
@@ -333,6 +359,13 @@ export default defineComponent({
           bossConfig.value = await bossConfigRes.json();
         } else {
           console.warn(`boss-config fetch failed: ${bossConfigRes.status}`);
+        }
+        if (bossClassRes.ok) {
+          bossClassOverrides.value = await bossClassRes.json();
+        } else {
+          console.warn(
+            `boss-class-override fetch failed: ${bossClassRes.status}`,
+          );
         }
       } catch (e) {
         error.value = e instanceof Error ? e.message : "Failed to load";
@@ -566,6 +599,47 @@ export default defineComponent({
       return absent.value.includes(player);
     }
 
+    function effectiveClass(bossId: string, player: string): string {
+      return (
+        bossClassOverrides.value[bossId]?.[player] ??
+        playerMeta.value[player]?.class ??
+        ""
+      );
+    }
+
+    function effectiveClassColor(bossId: string, player: string): string {
+      return CLASS_COLORS[effectiveClass(bossId, player)] ?? "#8a8f98";
+    }
+
+    async function updateBossClass(
+      bossId: string,
+      player: string,
+      className: string | null,
+    ) {
+      const prevOverrides = { ...(bossClassOverrides.value[bossId] ?? {}) };
+      if (!bossClassOverrides.value[bossId])
+        bossClassOverrides.value[bossId] = {};
+      if (className === null || className === "") {
+        delete bossClassOverrides.value[bossId][player];
+      } else {
+        bossClassOverrides.value[bossId][player] = className;
+      }
+      const res = await fetch("/api/roster?resource=boss-class-override", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          bossId,
+          name: player,
+          className: className ?? null,
+        }),
+      });
+      if (!res.ok) {
+        bossClassOverrides.value[bossId] = prevOverrides;
+        console.error(`updateBossClass failed: ${res.status}`);
+      }
+    }
+
     onMounted(fetchAll);
 
     return {
@@ -578,6 +652,7 @@ export default defineComponent({
       actionError,
       absent,
       bossConfig,
+      bossClassOverrides,
       saving,
       isGM,
       WOW_CLASSES,
@@ -588,12 +663,15 @@ export default defineComponent({
       bossCount,
       bossFullName,
       isAbsent,
+      effectiveClass,
+      effectiveClassColor,
       flexOptionsFor,
       toggleAssignment,
       updateMeta,
       toggleAbsent,
       updateFlex,
       updateBossHealers,
+      updateBossClass,
       runGenerate,
       clearRoster,
     };
@@ -768,11 +846,40 @@ export default defineComponent({
       min-width: 72px;
     }
     .col-boss {
-      min-width: 90px;
+      min-width: 96px;
       text-align: center;
     }
     .col-boss-cell {
       text-align: center;
+      vertical-align: middle;
+      padding: 4px 6px;
+    }
+
+    .boss-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .boss-class-select {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 3px;
+      font-size: 0.65rem;
+      padding: 1px 2px;
+      width: 72px;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+      font-weight: 600;
+      &:focus {
+        border-color: rgba(201, 162, 39, 0.4);
+      }
+      option {
+        color: #c8c8c8;
+        background: #1a1b1e;
+      }
     }
     .col-count {
       text-align: center;

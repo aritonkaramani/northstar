@@ -201,11 +201,10 @@ export default async function handler(req, res) {
       let flexRoles;
       if (Array.isArray(rawFlexRoles)) {
         const validFlexRoles = rawFlexRoles.filter(
-          (r) => ["Tank", "Healer", "DPS"].includes(r) && r !== role
+          (r) => ["Tank", "Healer", "DPS"].includes(r) && r !== role,
         );
-        flexRoles = validFlexRoles.length > 0
-          ? [...new Set(validFlexRoles)]
-          : undefined;
+        flexRoles =
+          validFlexRoles.length > 0 ? [...new Set(validFlexRoles)] : undefined;
       }
       const entry = { class: cls, role };
       if (flexRoles) entry.flexRoles = flexRoles;
@@ -253,7 +252,9 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: `Invalid boss ID: "${key}"` });
           }
           if (key.length > 20) {
-            return res.status(400).json({ error: `Boss ID too long: "${key}"` });
+            return res
+              .status(400)
+              .json({ error: `Boss ID too long: "${key}"` });
           }
           if (!Array.isArray(val) || val.some((v) => typeof v !== "string")) {
             return res
@@ -263,12 +264,16 @@ export default async function handler(req, res) {
           if (val.some((v) => !isSafeKey(v))) {
             return res
               .status(400)
-              .json({ error: `roster["${key}"] contains invalid player names` });
+              .json({
+                error: `roster["${key}"] contains invalid player names`,
+              });
           }
           if (val.some((v) => v.length > 100)) {
             return res
               .status(400)
-              .json({ error: `roster["${key}"] contains a name that is too long` });
+              .json({
+                error: `roster["${key}"] contains a name that is too long`,
+              });
           }
         }
         try {
@@ -417,7 +422,9 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "bossId too long" });
       }
       if (!Number.isInteger(healers) || healers < 3 || healers > 5) {
-        return res.status(400).json({ error: "healers must be an integer 3–5" });
+        return res
+          .status(400)
+          .json({ error: "healers must be an integer 3–5" });
       }
       try {
         const config = (await kv.get("roster:boss-config")) ?? {};
@@ -430,6 +437,46 @@ export default async function handler(req, res) {
       }
     }
 
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // ── boss-class-override ────────────────────────────────────────────────────────
+  if (resource === "boss-class-override") {
+    if (method === "GET") {
+      try {
+        const overrides = (await kv.get("roster:boss-class-override")) ?? {};
+        return res.status(200).json(overrides);
+      } catch (err) {
+        console.error("boss-class-override GET error:", err);
+        return res.status(500).json({ error: "Internal error" });
+      }
+    }
+    if (method === "POST") {
+      const { bossId, name, className } = req.body ?? {};
+      if (!isSafeKey(bossId))
+        return res.status(400).json({ error: "Invalid bossId" });
+      if (!isSafeKey(name))
+        return res.status(400).json({ error: "Invalid name" });
+      if (
+        className !== null &&
+        (typeof className !== "string" || className.length > 64)
+      )
+        return res.status(400).json({ error: "Invalid className" });
+      try {
+        const overrides = (await kv.get("roster:boss-class-override")) ?? {};
+        if (!overrides[bossId]) overrides[bossId] = {};
+        if (className === null) {
+          delete overrides[bossId][name];
+        } else {
+          overrides[bossId][name] = className;
+        }
+        await kv.set("roster:boss-class-override", overrides);
+        return res.status(200).json({ ok: true });
+      } catch (err) {
+        console.error("boss-class-override POST error:", err);
+        return res.status(500).json({ error: "Internal error" });
+      }
+    }
     return res.status(405).json({ error: "Method not allowed" });
   }
 
