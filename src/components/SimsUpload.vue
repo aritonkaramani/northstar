@@ -126,7 +126,7 @@ export default defineComponent({
       formData.append('difficulty', props.difficulty);
 
       try {
-        const res = await fetch('/api/sims-upload', {
+        const res = await fetch('/api/sims', {
           method: 'POST',
           credentials: 'include',
           body: formData,

@@ -131,7 +131,7 @@ export default defineComponent({
     async function fetchStatus() {
       try {
         const res = await fetch(
-          `/api/sims-status?difficulty=${difficulty.value}`,
+          `/api/sims?resource=status&difficulty=${difficulty.value}`,
           { credentials: "include" },
         );
         if (!res.ok) return;
@@ -148,7 +148,7 @@ export default defineComponent({
       error.value = null;
       try {
         const res = await fetch(
-          `/api/sims-result?difficulty=${difficulty.value}`,
+          `/api/sims?resource=result&difficulty=${difficulty.value}`,
           { credentials: "include" },
         );
         if (!res.ok) throw new Error(`Error ${res.status}`);
@@ -178,7 +178,7 @@ export default defineComponent({
       resetting.value = true;
       try {
         const res = await fetch(
-          `/api/sims-result?difficulty=${difficulty.value}`,
+          `/api/sims?resource=result&difficulty=${difficulty.value}`,
           {
             method: "DELETE",
             credentials: "include",

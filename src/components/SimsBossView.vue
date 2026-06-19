@@ -79,7 +79,7 @@ export default defineComponent({
 
     async function fetchBosses() {
       try {
-        const res = await fetch('/api/sims-bosses');
+        const res = await fetch('/api/sims?resource=bosses');
         if (!res.ok) return;
         raids.value = await res.json();
         if (raids.value.length) {
