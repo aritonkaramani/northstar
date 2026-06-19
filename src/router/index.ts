@@ -35,6 +35,10 @@ const routes: RouteRecordRaw[] = [
         path: 'clips',
         component: () => import('../views/ClipsView.vue'),
       },
+      {
+        path: 'cooldowns',
+        component: () => import('../views/CooldownsView.vue'),
+      },
     ],
   },
   {

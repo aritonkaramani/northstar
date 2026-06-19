@@ -480,11 +480,42 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // ── player-order ──────────────────────────────────────────────────────────────
+  if (resource === "player-order") {
+    if (method === "GET") {
+      try {
+        const order = (await kv.get("roster:player-order")) ?? {};
+        return res.status(200).json(order);
+      } catch (err) {
+        console.error("player-order GET error:", err);
+        return res.status(500).json({ error: "Internal error" });
+      }
+    }
+    if (method === "POST") {
+      const { section, order } = req.body ?? {};
+      if (!["mains", "alts"].includes(section))
+        return res.status(400).json({ error: "Invalid section" });
+      if (!Array.isArray(order) || order.some((n) => !isSafeKey(n)))
+        return res.status(400).json({ error: "Invalid order" });
+      try {
+        const current = (await kv.get("roster:player-order")) ?? {};
+        current[section] = order;
+        await kv.set("roster:player-order", current);
+        return res.status(200).json({ ok: true });
+      } catch (err) {
+        console.error("player-order POST error:", err);
+        return res.status(500).json({ error: "Internal error" });
+      }
+    }
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   if (method === "GET") {
     try {
-      const [mainEntries, altEntries] = await Promise.all([
+      const [mainEntries, altEntries, playerOrder] = await Promise.all([
         getSection("mains"),
         getSection("alts"),
+        kv.get("roster:player-order"),
       ]);
 
       const [mainResults, altResults] = await Promise.all([
@@ -494,9 +525,19 @@ export default async function handler(req, res) {
         Promise.allSettled(altEntries.map(parseCharacter).map(enrichCharacter)),
       ]);
 
+      function applyOrder(list, orderArr) {
+        if (!orderArr || !orderArr.length) return list;
+        const idx = Object.fromEntries(orderArr.map((n, i) => [n, i]));
+        return [...list].sort((a, b) => {
+          const ai = a.name != null ? (idx[a.name] ?? Infinity) : Infinity;
+          const bi = b.name != null ? (idx[b.name] ?? Infinity) : Infinity;
+          return ai - bi;
+        });
+      }
+
       res.status(200).json({
-        mains: buildList(mainResults),
-        alts: buildList(altResults),
+        mains: applyOrder(buildList(mainResults), playerOrder?.mains ?? null),
+        alts: applyOrder(buildList(altResults), playerOrder?.alts ?? null),
       });
     } catch (err) {
       console.error("Roster GET error:", err);

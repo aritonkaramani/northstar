@@ -32,6 +32,7 @@
         <table class="raid-table">
           <thead>
             <tr>
+              <th class="col-handle"></th>
               <th class="col-player">Player</th>
               <th class="col-class">Class</th>
               <th class="col-role">Role</th>
@@ -66,10 +67,21 @@
           </thead>
           <tbody>
             <tr
-              v-for="player in mains"
+              v-for="(player, index) in mains"
               :key="player"
-              :class="{ 'row-absent': isAbsent(player) }"
+              :draggable="true"
+              :class="{
+                'row-absent': isAbsent(player),
+                'row-dragging': dragSrcIndex === index,
+                'row-drag-over':
+                  dragOverIndex === index && dragSrcIndex !== index,
+              }"
+              @dragstart="onDragStart(index, $event)"
+              @dragover.prevent="onDragOver(index, $event)"
+              @drop.prevent="onDrop(index)"
+              @dragend="onDragEnd"
             >
+              <td class="col-handle"><span class="drag-handle">⠿</span></td>
               <td
                 class="col-player"
                 :class="{ 'player-absent': isAbsent(player) }"
@@ -226,35 +238,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed, onMounted } from "vue";
+import { defineComponent, computed, onMounted } from "vue";
 import { useAuth } from "../composables/useAuth";
-import { generateRoster } from "../utils/generateRoster";
-
-interface RosterEntry {
-  name?: string;
-  separator?: boolean;
-  empty?: boolean;
-}
-
-const BOSSES = [
-  { id: "2795", name: "Chimaerus", fullName: "Chimaerus the Undreamt God" },
-  { id: "2733", name: "Imperator", fullName: "Imperator Averzian" },
-  { id: "2734", name: "Vorasius", fullName: "Vorasius" },
-  { id: "2736", name: "Fallen-King", fullName: "Fallen-King Salhadaar" },
-  { id: "2735", name: "Vaelgor", fullName: "Vaelgor & Ezzorak" },
-  { id: "2737", name: "Vanguard", fullName: "Lightblinded Vanguard" },
-  { id: "2738", name: "Crown", fullName: "Crown of the Cosmos" },
-  { id: "2739", name: "Belo'ren", fullName: "Belo'ren, Child of Al'ar" },
-  { id: "2740", name: "Midnight", fullName: "Midnight Falls" },
-] as const;
-
-type BossId = (typeof BOSSES)[number]["id"];
-
-interface PlayerMeta {
-  class: string;
-  role: "Tank" | "Healer" | "DPS";
-  flexRoles?: Array<"Tank" | "Healer" | "DPS">;
-}
+import { useRaidRoster } from "../composables/useRaidRoster";
+import { useDragOrder } from "../composables/useDragOrder";
+import { BOSSES, WOW_CLASSES, ROLES } from "../constants/raidRoster";
 
 export default defineComponent({
   name: "RaidRosterView",
@@ -262,418 +250,18 @@ export default defineComponent({
     const { user } = useAuth();
     const isGM = computed(() => user.value?.battleTag === "Ari#2764");
 
-    const WOW_CLASSES = [
-      "Death Knight",
-      "Demon Hunter",
-      "Druid",
-      "Evoker",
-      "Hunter",
-      "Mage",
-      "Monk",
-      "Paladin",
-      "Priest",
-      "Rogue",
-      "Shaman",
-      "Warlock",
-      "Warrior",
-    ] as const;
+    const roster = useRaidRoster();
+    const drag = useDragOrder(roster.mains);
 
-    const CLASS_COLORS: Record<string, string> = {
-      "Death Knight": "#C41E3A",
-      "Demon Hunter": "#A330C9",
-      Druid: "#FF7C0A",
-      Evoker: "#33937F",
-      Hunter: "#AAD372",
-      Mage: "#3FC7EB",
-      Monk: "#00FF98",
-      Paladin: "#F48CBA",
-      Priest: "#FFFFFF",
-      Rogue: "#FFF468",
-      Shaman: "#0070DD",
-      Warlock: "#8788EE",
-      Warrior: "#C79C6E",
-    };
-
-    function classColor(player: string): string {
-      return CLASS_COLORS[playerMeta.value[player]?.class ?? ""] ?? "#8a8f98";
-    }
-
-    const mains = ref<string[]>([]);
-    const playerMeta = ref<Record<string, PlayerMeta>>({});
-    const raidRoster = ref<Record<string, string[]>>({});
-    const loading = ref(true);
-    const error = ref<string | null>(null);
-    const actionError = ref<string | null>(null);
-    const absent = ref<string[]>([]);
-    const bossConfig = ref<Record<string, { healers: number }>>({});
-    const bossClassOverrides = ref<Record<string, Record<string, string>>>({});
-
-    async function fetchAll() {
-      loading.value = true;
-      error.value = null;
-      try {
-        const [
-          rosterRes,
-          metaRes,
-          raidRes,
-          absentRes,
-          bossConfigRes,
-          bossClassRes,
-        ] = await Promise.all([
-          fetch("/api/roster", { credentials: "include" }),
-          fetch("/api/roster?resource=player-meta", { credentials: "include" }),
-          fetch("/api/roster?resource=raid-roster", { credentials: "include" }),
-          fetch("/api/roster?resource=absent", { credentials: "include" }),
-          fetch("/api/roster?resource=boss-config", { credentials: "include" }),
-          fetch("/api/roster?resource=boss-class-override", {
-            credentials: "include",
-          }),
-        ]);
-        if (!rosterRes.ok) throw new Error(`Roster ${rosterRes.status}`);
-        const rosterData = await rosterRes.json();
-        // Mains are enriched objects; extract plain names (skip separators/empty)
-        mains.value = (rosterData.mains ?? [])
-          .filter(
-            (m: RosterEntry) =>
-              !m.separator && !m.empty && typeof m.name === "string",
-          )
-          .map((m: RosterEntry) => m.name as string);
-
-        if (metaRes.ok) {
-          playerMeta.value = await metaRes.json();
-        } else {
-          console.warn(`player-meta fetch failed: ${metaRes.status}`);
-        }
-
-        if (raidRes.ok) {
-          raidRoster.value = await raidRes.json();
-        } else {
-          console.warn(`raid-roster fetch failed: ${raidRes.status}`);
-        }
-        if (absentRes.ok) {
-          absent.value = await absentRes.json();
-        } else {
-          console.warn(`absent fetch failed: ${absentRes.status}`);
-        }
-        if (bossConfigRes.ok) {
-          bossConfig.value = await bossConfigRes.json();
-        } else {
-          console.warn(`boss-config fetch failed: ${bossConfigRes.status}`);
-        }
-        if (bossClassRes.ok) {
-          bossClassOverrides.value = await bossClassRes.json();
-        } else {
-          console.warn(
-            `boss-class-override fetch failed: ${bossClassRes.status}`,
-          );
-        }
-      } catch (e) {
-        error.value = e instanceof Error ? e.message : "Failed to load";
-      } finally {
-        loading.value = false;
-      }
-    }
-
-    function isAssigned(bossId: string, player: string): boolean {
-      return (raidRoster.value[bossId] ?? []).includes(player);
-    }
-
-    function playerBossCount(player: string): number {
-      return BOSSES.filter((b) => isAssigned(b.id, player)).length;
-    }
-
-    function bossCount(bossId: string): number {
-      return (raidRoster.value[bossId] ?? []).length;
-    }
-
-    function bossFullName(bossId: string): string {
-      return BOSSES.find((b) => b.id === bossId)?.fullName ?? bossId;
-    }
-
-    async function toggleAssignment(
-      bossId: string,
-      player: string,
-      checked: boolean,
-    ) {
-      // Snapshot for rollback
-      const prev = [...(raidRoster.value[bossId] ?? [])];
-      // Optimistic update (immutable replace — unambiguously reactive in Vue 3)
-      raidRoster.value[bossId] = checked
-        ? [...prev, player]
-        : prev.filter((p) => p !== player);
-
-      const res = await fetch("/api/roster?resource=raid-roster", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ bossId, name: player, checked }),
-      });
-      if (!res.ok) {
-        // Rollback optimistic update
-        raidRoster.value[bossId] = prev;
-        console.error(`toggleAssignment failed: ${res.status}`);
-      }
-    }
-
-    async function updateMeta(
-      player: string,
-      field: "class" | "role",
-      value: string,
-    ) {
-      if (!value) return;
-      const prev = playerMeta.value[player] ?? null;
-      const updated = {
-        class: "" as string,
-        role: "" as string,
-        ...(prev ?? {}),
-        [field]: value,
-      };
-      // Only persist if both fields are set
-      if (!updated.class || !updated.role) {
-        // Update local state only (partial — don't persist yet)
-        playerMeta.value[player] = updated as PlayerMeta;
-        return;
-      }
-      playerMeta.value[player] = updated as PlayerMeta; // optimistic
-
-      const res = await fetch("/api/roster?resource=player-meta", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: player,
-          class: updated.class,
-          role: updated.role,
-          flexRoles: (updated as PlayerMeta).flexRoles ?? [],
-        }),
-      });
-      if (!res.ok) {
-        // Rollback optimistic update
-        if (prev) {
-          playerMeta.value[player] = prev;
-        } else {
-          delete (playerMeta.value as Record<string, PlayerMeta>)[player];
-        }
-        console.error(`updateMeta failed: ${res.status}`);
-      }
-    }
-
-    const saving = ref(false);
-
-    async function runGenerate() {
-      saving.value = true;
-      actionError.value = null;
-      const snapshot = { ...raidRoster.value };
-      try {
-        const result = generateRoster(
-          mains.value,
-          playerMeta.value,
-          raidRoster.value,
-          BOSSES.map((b) => ({ id: b.id, name: b.name })),
-          absent.value,
-          bossConfig.value,
-        );
-        raidRoster.value = result.grid;
-        if (result.warnings.length > 0) {
-          actionError.value = result.warnings.join(" · ");
-        }
-        const res = await fetch("/api/roster?resource=raid-roster", {
-          method: "POST",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ roster: result.grid }),
-        });
-        if (!res.ok) {
-          raidRoster.value = snapshot;
-          actionError.value = `Generate failed (${res.status})`;
-        }
-      } catch (e) {
-        raidRoster.value = snapshot;
-        actionError.value = e instanceof Error ? e.message : "Generate failed";
-      } finally {
-        saving.value = false;
-      }
-    }
-
-    async function clearRoster() {
-      saving.value = true;
-      actionError.value = null;
-      const snapshot = { ...raidRoster.value };
-      try {
-        raidRoster.value = {};
-        const res = await fetch("/api/roster?resource=raid-roster", {
-          method: "DELETE",
-          credentials: "include",
-        });
-        if (!res.ok) {
-          raidRoster.value = snapshot;
-          actionError.value = `Clear failed (${res.status})`;
-        }
-      } catch (e) {
-        raidRoster.value = snapshot;
-        actionError.value = e instanceof Error ? e.message : "Clear failed";
-      } finally {
-        saving.value = false;
-      }
-    }
-
-    async function toggleAbsent(player: string, checked: boolean) {
-      const prev = [...absent.value];
-      absent.value = checked
-        ? [...prev, player]
-        : prev.filter((p) => p !== player);
-      const res = await fetch("/api/roster?resource=absent", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: player, absent: checked }),
-      });
-      if (!res.ok) {
-        absent.value = prev;
-        console.error(`toggleAbsent failed: ${res.status}`);
-      }
-    }
-
-    async function updateFlex(
-      player: string,
-      role: "Tank" | "Healer" | "DPS",
-      checked: boolean,
-    ) {
-      const current = playerMeta.value[player];
-      if (!current?.class || !current?.role) return;
-      const prevFlex = current.flexRoles ?? [];
-      const newFlex = checked
-        ? [...prevFlex.filter((r) => r !== role), role]
-        : prevFlex.filter((r) => r !== role);
-      const prev = { ...current };
-      playerMeta.value[player] = {
-        ...current,
-        flexRoles: newFlex.length > 0 ? newFlex : undefined,
-      };
-      const res = await fetch("/api/roster?resource=player-meta", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: player,
-          class: current.class,
-          role: current.role,
-          flexRoles: newFlex,
-        }),
-      });
-      if (!res.ok) {
-        playerMeta.value[player] = prev;
-        console.error(`updateFlex failed: ${res.status}`);
-      }
-    }
-
-    async function updateBossHealers(bossId: string, healers: number) {
-      const prev = bossConfig.value[bossId];
-      bossConfig.value[bossId] = { healers };
-      const res = await fetch("/api/roster?resource=boss-config", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ bossId, healers }),
-      });
-      if (!res.ok) {
-        if (prev) {
-          bossConfig.value[bossId] = prev;
-        } else {
-          delete (bossConfig.value as Record<string, { healers: number }>)[
-            bossId
-          ];
-        }
-        console.error(`updateBossHealers failed: ${res.status}`);
-      }
-    }
-
-    const ROLES: Array<"Tank" | "Healer" | "DPS"> = ["Tank", "Healer", "DPS"];
-
-    function flexOptionsFor(player: string): Array<"Tank" | "Healer" | "DPS"> {
-      const primaryRole = playerMeta.value[player]?.role;
-      return ROLES.filter((r) => r !== primaryRole);
-    }
-
-    function isAbsent(player: string): boolean {
-      return absent.value.includes(player);
-    }
-
-    function effectiveClass(bossId: string, player: string): string {
-      return (
-        bossClassOverrides.value[bossId]?.[player] ??
-        playerMeta.value[player]?.class ??
-        ""
-      );
-    }
-
-    function effectiveClassColor(bossId: string, player: string): string {
-      return CLASS_COLORS[effectiveClass(bossId, player)] ?? "#8a8f98";
-    }
-
-    async function updateBossClass(
-      bossId: string,
-      player: string,
-      className: string | null,
-    ) {
-      const prevOverrides = { ...(bossClassOverrides.value[bossId] ?? {}) };
-      if (!bossClassOverrides.value[bossId])
-        bossClassOverrides.value[bossId] = {};
-      if (className === null || className === "") {
-        delete bossClassOverrides.value[bossId][player];
-      } else {
-        bossClassOverrides.value[bossId][player] = className;
-      }
-      const res = await fetch("/api/roster?resource=boss-class-override", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          bossId,
-          name: player,
-          className: className ?? null,
-        }),
-      });
-      if (!res.ok) {
-        bossClassOverrides.value[bossId] = prevOverrides;
-        console.error(`updateBossClass failed: ${res.status}`);
-      }
-    }
-
-    onMounted(fetchAll);
+    onMounted(roster.fetchAll);
 
     return {
       BOSSES,
-      mains,
-      playerMeta,
-      raidRoster,
-      loading,
-      error,
-      actionError,
-      absent,
-      bossConfig,
-      bossClassOverrides,
-      saving,
-      isGM,
       WOW_CLASSES,
-      classColor,
       ROLES,
-      isAssigned,
-      playerBossCount,
-      bossCount,
-      bossFullName,
-      isAbsent,
-      effectiveClass,
-      effectiveClassColor,
-      flexOptionsFor,
-      toggleAssignment,
-      updateMeta,
-      toggleAbsent,
-      updateFlex,
-      updateBossHealers,
-      updateBossClass,
-      runGenerate,
-      clearRoster,
+      isGM,
+      ...roster,
+      ...drag,
     };
   },
 });
@@ -777,6 +365,8 @@ export default defineComponent({
 
   .table-wrapper {
     overflow-x: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 11rem);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.09);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
@@ -784,22 +374,43 @@ export default defineComponent({
 
   .raid-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     font-size: 0.82rem;
     color: #c8c8c8;
 
-    // Sticky first columns
-    .col-player,
-    th.col-player {
+    // Sticky first columns — body cells sit above normal cells but below header
+    .col-handle {
       position: sticky;
       left: 0;
-      z-index: 2;
+      z-index: 1;
     }
-    .col-class,
+    .col-player {
+      position: sticky;
+      left: 28px;
+      z-index: 1;
+    }
+    .col-class {
+      position: sticky;
+      left: 158px;
+      z-index: 1;
+    }
+
+    // Header corner cells must sit above everything
+    th.col-handle {
+      position: sticky;
+      left: 0;
+      z-index: 4;
+    }
+    th.col-player {
+      position: sticky;
+      left: 28px;
+      z-index: 4;
+    }
     th.col-class {
       position: sticky;
-      left: 130px;
-      z-index: 2;
+      left: 158px;
+      z-index: 4;
     }
 
     th,
@@ -814,6 +425,9 @@ export default defineComponent({
     }
 
     th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
       background: #111215;
       color: #555;
       font-size: 0.7rem;
@@ -821,13 +435,44 @@ export default defineComponent({
       text-transform: uppercase;
       letter-spacing: 0.1em;
       text-align: center;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.1);
     }
 
     // Separator between fixed info columns and boss columns
     th.col-boss:first-of-type,
-    td.col-boss-cell:nth-child(6) {
+    td.col-boss-cell:nth-child(7) {
       border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .col-handle {
+      width: 28px;
+      min-width: 28px;
+      padding: 0;
+      text-align: center;
+      background: inherit;
+      cursor: grab;
+    }
+    .drag-handle {
+      display: inline-block;
+      font-size: 1rem;
+      color: #3a3d44;
+      user-select: none;
+      cursor: grab;
+      padding: 0 4px;
+      transition: color 0.15s;
+      &:active {
+        cursor: grabbing;
+      }
+    }
+    tr:hover .drag-handle {
+      color: #6e7074;
+    }
+    tr.row-dragging {
+      opacity: 0.35;
+    }
+    tr.row-drag-over td {
+      background: rgba(201, 162, 39, 0.1) !important;
+      box-shadow: inset 0 2px 0 rgba(201, 162, 39, 0.35);
     }
 
     .col-player {

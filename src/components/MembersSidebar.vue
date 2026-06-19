@@ -29,6 +29,10 @@
         <span class="nav-icon">🎬</span>
         <span class="nav-label">Clips</span>
       </RouterLink>
+      <RouterLink to="/members/cooldowns" active-class="active" class="nav-item">
+        <span class="nav-icon">🛡️</span>
+        <span class="nav-label">Cooldowns</span>
+      </RouterLink>
       <div class="nav-divider" />
       <RouterLink to="/" class="nav-item nav-item--back">
         <span class="nav-icon">←</span>
