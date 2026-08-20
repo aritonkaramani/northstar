@@ -97,3 +97,29 @@ export async function resetDifficulty(difficulty) {
     ]);
   } catch (e) { console.error('[sims-kv] resetDifficulty failed:', e?.message); }
 }
+
+/**
+ * Remove all player entries for a given battletag from a difficulty.
+ * Returns the remaining players array (after deletion) for matrix rebuild.
+ */
+export async function removePlayerByBattletag(difficulty, battletag) {
+  try {
+    const keys = await getPlayerKeys(difficulty);
+    const players = await Promise.all(keys.map(k => kv.get(k)));
+    const toDelete = keys.filter((_, i) => players[i]?.battletag === battletag);
+    const remaining = players.filter((p, i) => p && keys[i] && !toDelete.includes(keys[i]));
+    const remainingKeys = keys.filter(k => !toDelete.includes(k));
+
+    await Promise.all(toDelete.map(k => kv.del(k)));
+    await kv.set(`sims:${difficulty}:playerkeys`, remainingKeys);
+
+    const uploaders = await getUploaders(difficulty);
+    const newUploaders = uploaders.filter(u => u.battletag !== battletag);
+    await kv.set(`sims:${difficulty}:uploaders`, newUploaders);
+
+    return remaining;
+  } catch (e) {
+    console.error('[sims-kv] removePlayerByBattletag failed:', e?.message);
+    return [];
+  }
+}

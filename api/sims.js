@@ -14,7 +14,7 @@ import { join } from 'path';
 import { kv } from '@vercel/kv';
 import formidable from 'formidable';
 import { parseFilename, parseCsvIdentity, parseCsvDifficulty, parseDroptimizerCSV, buildMatrix } from './_sims-parse.js';
-import { playerKey, addPlayerKey, getAllPlayers, upsertUploader, setPlayerData, setResult, getUploaders, resetDifficulty } from './_sims-kv.js';
+import { playerKey, addPlayerKey, getAllPlayers, upsertUploader, setPlayerData, setResult, getUploaders, resetDifficulty, removePlayerByBattletag } from './_sims-kv.js';
 
 // Disable body parser so formidable can handle multipart uploads
 export const config = { api: { bodyParser: false } };
@@ -138,6 +138,29 @@ export default async function handler(req, res) {
     }
     await resetDifficulty(difficulty);
     return res.status(200).json({ ok: true, difficulty });
+  }
+
+  // ── DELETE /api/sims?resource=myupload&difficulty=... (any user) ──────────
+  if (req.method === 'DELETE' && resource === 'myupload') {
+    const difficulty = rawDifficulty?.toLowerCase();
+    if (!VALID_DIFFICULTIES.has(difficulty)) {
+      return res.status(400).json({ error: 'difficulty must be "mythic" or "heroic"' });
+    }
+    const remaining = await removePlayerByBattletag(difficulty, user.battleTag);
+    const itemData = JSON.parse(
+      readFileSync(join(process.cwd(), 'static_data/formatted_itemdata.json'), 'utf8')
+    );
+    if (remaining.length > 0) {
+      const { items, matrix } = buildMatrix(remaining, itemData.drops);
+      await setResult(difficulty, {
+        items,
+        players: remaining.map(p => ({ name: p.name, spec: p.spec })),
+        matrix,
+      });
+    } else {
+      await setResult(difficulty, { items: [], players: [], matrix: [] });
+    }
+    return res.status(200).json({ ok: true });
   }
 
   // ── POST /api/sims (CSV upload) ───────────────────────────────────────────

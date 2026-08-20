@@ -13,6 +13,14 @@
       >
         {{ resetting ? "Resetting…" : "🗑 Reset Week" }}
       </button>
+      <button
+        v-if="hasMyUpload"
+        class="remove-mine-btn"
+        :disabled="removingMine"
+        @click="removeMyUpload"
+      >
+        {{ removingMine ? "Removing…" : "🗑 Remove my upload" }}
+      </button>
     </div>
 
     <!-- Difficulty tabs -->
@@ -87,7 +95,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, onMounted } from "vue";
+import { defineComponent, ref, computed, watch, onMounted } from "vue";
 import SimsUpload from "../components/SimsUpload.vue";
 import SimsItemTable from "../components/SimsItemTable.vue";
 import SimsPlayerCards from "../components/SimsPlayerCards.vue";
@@ -107,6 +115,8 @@ export default defineComponent({
     const error = ref<string | null>(null);
     const resetting = ref(false);
     const isAdmin = ref(false);
+    const myBattletag = ref<string | null>(null);
+    const removingMine = ref(false);
 
     const result = ref<{ items: any[]; players: any[]; matrix: number[][] }>({
       items: [],
@@ -116,13 +126,19 @@ export default defineComponent({
     const uploaders = ref<any[]>([]);
     const expected = ref<string[]>([]);
 
+    const hasMyUpload = computed(
+      () =>
+        !!myBattletag.value &&
+        uploaders.value.some((u) => u.battletag === myBattletag.value),
+    );
+
     async function fetchMe() {
       try {
         const res = await fetch("/api/auth/me", { credentials: "include" });
         if (!res.ok) return;
-        const { battleTag } = await res.json();
-        const adminTag = import.meta.env.VITE_ADMIN_BATTLETAG ?? "";
-        isAdmin.value = !!adminTag && battleTag === adminTag;
+        const data = await res.json();
+        myBattletag.value = data.battleTag ?? null;
+        isAdmin.value = !!data.isAdmin;
       } catch {
         /* non-fatal */
       }
@@ -166,6 +182,26 @@ export default defineComponent({
 
     async function onUploaded() {
       await Promise.all([fetchStatus(), fetchResult()]);
+    }
+
+    async function removeMyUpload() {
+      if (!confirm(`Remove your ${difficulty.value} sim upload?`)) return;
+      removingMine.value = true;
+      try {
+        const res = await fetch(
+          `/api/sims?resource=myupload&difficulty=${difficulty.value}`,
+          { method: "DELETE", credentials: "include" },
+        );
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || "Remove failed");
+        }
+        await Promise.all([fetchStatus(), fetchResult()]);
+      } catch (e: any) {
+        alert(e?.message ?? "Remove failed");
+      } finally {
+        removingMine.value = false;
+      }
     }
 
     async function resetWeek() {
@@ -218,9 +254,12 @@ export default defineComponent({
       expected,
       isAdmin,
       resetting,
+      hasMyUpload,
+      removingMine,
       setDifficulty,
       onUploaded,
       resetWeek,
+      removeMyUpload,
     };
   },
 });
@@ -247,7 +286,10 @@ export default defineComponent({
     text-transform: uppercase;
     margin-bottom: 0.3rem;
 
-    @media (max-width: 768px) { font-size: 1.1rem; letter-spacing: 2px; }
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
   }
 
   .subtitle {
@@ -270,6 +312,27 @@ export default defineComponent({
     &:hover:not(:disabled) {
       background: rgba(220, 53, 69, 0.2);
       border-color: rgba(220, 53, 69, 0.5);
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  .remove-mine-btn {
+    background: rgba(201, 162, 39, 0.08);
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    color: #c9a227;
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition:
+      background 0.15s,
+      border-color 0.15s;
+    &:hover:not(:disabled) {
+      background: rgba(201, 162, 39, 0.16);
+      border-color: rgba(201, 162, 39, 0.45);
     }
     &:disabled {
       opacity: 0.5;
