@@ -133,7 +133,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'difficulty must be "mythic" or "heroic"' });
     }
     const adminBattletag = process.env.ADMIN_BATTLETAG;
-    if (!adminBattletag || user.battleTag !== adminBattletag) {
+    if (!adminBattletag || user.battleTag?.toLowerCase() !== adminBattletag.toLowerCase()) {
       return res.status(403).json({ error: 'Forbidden' });
     }
     await resetDifficulty(difficulty);

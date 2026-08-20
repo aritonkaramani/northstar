@@ -8,7 +8,7 @@ export default function handler(req, res) {
 
     const { sub, battleTag, verified } = jwt.verify(sessionCookie, process.env.JWT_SECRET);
     const adminBattletag = process.env.ADMIN_BATTLETAG;
-    const isAdmin = !!adminBattletag && battleTag === adminBattletag;
+    const isAdmin = !!adminBattletag && battleTag?.toLowerCase() === adminBattletag.toLowerCase();
     // sub is absent on tokens minted before the clips feature — graceful degradation
     res.status(200).json({ id: sub ?? null, battleTag, verified, isAdmin });
   } catch {
